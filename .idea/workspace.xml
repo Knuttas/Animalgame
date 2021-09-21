@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eeb9672-c117-4589-890c-15e4c32673d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animalgame/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animalgame/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animalgame/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animalgame/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animalgame/Horse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animalgame/Horse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animalgame/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animalgame/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animalgame/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animalgame/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Horse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sheep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sheep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
