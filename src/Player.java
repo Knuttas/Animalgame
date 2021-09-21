@@ -56,6 +56,7 @@ public class Player {
                 Store.buyFood(player);
             }
         } else {
+            // Needs improving, you must be able to choose which food to use etc
             System.out.println("Please choose which animal to feed");
             int animalToFeed = scan.nextInt();
             animalsOwned.get(animalToFeed - 1).feedHealth();
