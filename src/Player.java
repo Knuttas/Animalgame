@@ -1,12 +1,15 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
     private String name;
     private int money;
     ArrayList<Animal> animalsOwned = new ArrayList<>();
-    private int meatOwned;
-    private int saladOwned;
-    private int hayOwned;
+    private int meatOwned = 0;
+    private int saladOwned = 0;
+    private int hayOwned = 0;
+
+    Scanner scan = new Scanner(System.in);
 
     public Player(String name, int money){
         this.name = name;
@@ -32,8 +35,32 @@ public class Player {
         animalsOwned.remove(animal);
     }
     public void printAnimalList(){
+        int counter = 1;
         for (Animal x : animalsOwned){
-            System.out.println(x.getName());
+            System.out.println(counter + ". " + x.getName() + " " + x.getHealth() + "% health");
+            counter++;
+        }
+    }
+
+    public void feedAnimal(Player player){
+        int counter = 1;
+        for (Animal x : animalsOwned){
+            System.out.println(counter + ". " + x.getName() + " " + x.getHealth() + "% health");
+            counter++;
+        }
+        if (meatOwned == 0 && hayOwned == 0 && saladOwned == 0) {
+            System.out.println("You have no food. Do you want to go to the store to buy?");
+            System.out.println("1. Go to store  2. End turn");
+            int goToStore = scan.nextInt();
+            if (goToStore == 1) {
+                Store.buyFood(player);
+            }
+        } else {
+            System.out.println("Please choose which animal to feed");
+            int animalToFeed = scan.nextInt();
+            animalsOwned.get(animalToFeed - 1).feedHealth();
+            System.out.println("You have fed " + animalsOwned.get(animalToFeed - 1).getName() + ". Health increased by 10%");
+
         }
     }
 

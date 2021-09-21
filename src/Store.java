@@ -74,21 +74,75 @@ public class Store {
     }
 
     public static void sellAnimal(Player player){
+        int dogValue = 75, horseValue = 150, lizardValue = 225, cowValue = 300, sheepValue = 375;
 
-        System.out.println("These are your animals, which one would you like to sell?");
-        player.printAnimalList();
-        System.out.println("Enter name of animal you wish to sell");
-        //scan something
-        //if list contains - remove
-        //player.removeAnimalFromList();
+        if (player.animalsOwned.isEmpty() == true) {
+            System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
+            System.out.println("1. Go to store  2. End turn");
+            int goToStore = scan.nextInt();
+            if (goToStore == 1) {
+                buyAnimal(player);
+            }
+        } else {
+            System.out.println("These are your animals, which one would you like to sell for 75% of initial cost?");
+            player.printAnimalList();
+            int whichToSell = scan.nextInt();
+
+            switch (player.animalsOwned.get(whichToSell - 1).getRace()){
+                case "dog":
+                    player.setPlayerMoney(dogValue);
+                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + dogValue + "$");
+                    break;
+                case "horse":
+                    player.setPlayerMoney(horseValue);
+                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + horseValue + "$");
+                    break;
+                case "lizard":
+                    player.setPlayerMoney(lizardValue);
+                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + lizardValue + "$");
+                    break;
+                case "cow":
+                    player.setPlayerMoney(cowValue);
+                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + cowValue + "$");
+                    break;
+                case "sheep":
+                    player.setPlayerMoney(sheepValue);
+                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + sheepValue + "$");
+                    break;
+            }
+            player.animalsOwned.remove(whichToSell - 1);
+        }
     }
 
 
     public static void buyFood(Player player){
-        System.out.println("What food do you want? 1.Meat 2.Hay 3.Salad");
+        int meatCost = 100, hayCost = 50, saladCost = 30;
+        System.out.println("What food do you want? 1. Meat 100$/kg  2. Hay 50$/kg  3. Salad 30$/kg");
         int foodChosen = scan.nextInt();
         System.out.println("How much in kgs?");
         int amount = scan.nextInt();
+
+        switch (foodChosen) {
+            case 1:
+                if (meatCost * amount > player.getPlayerMoney()) {
+                    System.out.println("You can't afford that, try again");
+                    buyFood(player);
+                }
+                break;
+            case 2:
+                if (hayCost * amount > player.getPlayerMoney()) {
+                    System.out.println("You can't afford that, try again");
+                    buyFood(player);
+                }
+                break;
+            case 3:
+                if (saladCost * amount > player.getPlayerMoney()) {
+                    System.out.println("You can't afford that, try again");
+                    buyFood(player);
+                }
+                break;
+        }
+
         if (foodChosen == 1){
             player.setMeat(amount);
         }

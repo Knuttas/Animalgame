@@ -37,7 +37,17 @@ public class Game {
                     Store.buyFood(players[x]);
                 }
                 else if (choice == 3) {
-                    System.out.println("you fed an animal");
+                    if (players[x].animalsOwned.isEmpty() == true) {
+                        System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
+                        System.out.println("1. Go to store  2. End turn");
+                        int goToStore = myScanner.nextInt();
+                        if (goToStore == 1) {
+                            Store.buyAnimal(players[x]);
+                        }
+                    } else {
+                        players[x].feedAnimal(players[x]);
+                    }
+
                 } else if (choice == 4) {
                     System.out.println("you bred an animal");
                 } else if (choice == 5) {
@@ -47,7 +57,6 @@ public class Game {
                 }
                 for (Animal y : players[x].animalsOwned){
                     y.depreciateHealth();
-                    System.out.println(y.getHealth());
                 }
             }
         }
