@@ -26,25 +26,28 @@ public class Game {
         }
         for (int i = 0; i < amountOfRounds; i++) {
             for (int x = 0; x < players.length; x++) {
-                System.out.println(players[x].getPlayerName() + "'s turn.");
+                System.out.println(players[x].getPlayerName() + "'s turn. You have " + players[x].getPlayerMoney() + " dollars available.");
                 System.out.println("Please choose one of the following: ");
                 System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
                 int choice = myScanner.nextInt();
                 if (choice == 1){
                     Store.buyAnimal(players[x]);
-                    players[x].printAnimalList();
                 }
                 else if (choice == 2) {
-                    Store.buyFood();
+                    Store.buyFood(players[x]);
                 }
                 else if (choice == 3) {
                     System.out.println("you fed an animal");
                 } else if (choice == 4) {
                     System.out.println("you bred an animal");
                 } else if (choice == 5) {
-                    System.out.println("you sold an animal");
+                    Store.sellAnimal(players[x]);
                 } else {
                     System.out.println("Invalid choice");
+                }
+                for (Animal y : players[x].animalsOwned){
+                    y.depreciateHealth();
+                    System.out.println(y.getHealth());
                 }
             }
         }
