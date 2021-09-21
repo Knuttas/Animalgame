@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Game {
     public Game() {
-        Store store = new Store();
         Scanner myScanner = new Scanner(System.in);
         System.out.println("Enter amount of rounds 5-30");
         int amountOfRounds = myScanner.nextInt();
@@ -32,11 +31,11 @@ public class Game {
                 System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
                 int choice = myScanner.nextInt();
                 if (choice == 1){
-                    store.buyAnimal(players[x]);
+                    Store.buyAnimal(players[x]);
                     players[x].printAnimalList();
                 }
                 else if (choice == 2) {
-                    //buy food
+                    Store.buyFood();
                 }
                 else if (choice == 3) {
                     System.out.println("you fed an animal");

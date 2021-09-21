@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Store {
 
-    public void buyAnimal(Player player) {
+    public static void buyAnimal(Player player) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Pick animal: 1.Dog 2.Horse 3.Lizard 4.Cow 5. Sheep");
         int animalPick = scan.nextInt();
@@ -33,11 +33,8 @@ public class Store {
     }
 
 
-    public void buyFood(){
+    public static void buyFood(){
         Scanner scan = new Scanner(System.in);
         System.out.println("What food do you want? 1.Meat 2.Hay 3.Salad");
-        int foodType = scan.nextInt();
-        System.out.println("How much food? (in kg's)");
-        //this.amountOfFood = scan.nextInt();
     }
 }
