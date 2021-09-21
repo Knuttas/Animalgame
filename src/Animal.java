@@ -1,9 +1,9 @@
 public abstract class Animal {
     protected String name;
-    protected String gender;
+    protected int gender;
     protected int health;
 
-    public Animal (String name, String gender, int health){
+    public Animal (String name, int gender, int health){
         this.name = name;
         this.gender = gender;
         this.health = health;
@@ -13,7 +13,7 @@ public abstract class Animal {
         return this.name;
     }
 
-    public String getGender(){
+    public int getGender(){
         return this.gender;
     }
 
