@@ -1,7 +1,13 @@
 public class Player {
     private String name;
+    private int money;
 
-    public Player(String name){
+    public Player(String name, int money){
         this.name = name;
+        this.money = money;
+    }
+
+    public String getPlayerName(){
+        return this.name;
     }
 }
