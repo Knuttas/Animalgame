@@ -29,7 +29,7 @@ public abstract class Animal {
         return this.health;
     }
 
-    public abstract void feedHealth();
+    public abstract void feedHealth(Food food);
 
     public void depreciateHealth(){
         this.health -= (int) (Math.random()*(30-10)+10);

@@ -6,8 +6,6 @@ public class Game {
     public Game() {
         Scanner myScanner = new Scanner(System.in);
 
-
-
         System.out.println("Enter amount of players 1-4");
         int amountOfPlayers = myScanner.nextInt();
         while (amountOfPlayers < 1 || amountOfPlayers > 4) {
@@ -96,6 +94,32 @@ public class Game {
                 }
             }
         }
+        for (int k = 0; k < players.size(); k++) {
+            if (!players.get(k).animalsOwned.isEmpty()){
+                for ( int j = 0; j < players.get(k).animalsOwned.size(); j++){
+                    int dogValue = 100, horseValue = 200, lizardValue = 300, cowValue = 400, sheepValue = 500;
+                    switch (players.get(k).animalsOwned.get(j).getRace()){
+                        case "dog":
+                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * dogValue / 100);
+                            break;
+                        case "horse":
+                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * horseValue / 100);
+                            break;
+                        case "lizard":
+                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * lizardValue / 100);
+                            break;
+                        case "cow":
+                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * cowValue / 100);
+                            break;
+                        case "sheep":
+                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * sheepValue / 100);
+                            break;
+                    }
+                }
+            }
+            System.out.println(players.get(k).getPlayerName() + "'s total amount of money is " + players.get(k).getPlayerMoney() + "$");
+        }
+        System.out.println("Game over! Thanks for playing.");
     }
 
     }

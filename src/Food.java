@@ -1,10 +1,12 @@
 
 public abstract class Food {
 
-    protected int amountOwned;
 
-    public void setAmountOwned(int foodBought){
-        this.amountOwned += foodBought;
+    public void setAmountOwned(int amount) {
     }
+
+    public abstract int getAmountOwned();
+
+    public abstract String getFoodName();
 
 }
