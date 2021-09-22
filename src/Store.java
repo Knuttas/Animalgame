@@ -117,9 +117,9 @@ public class Store {
 
     public static void buyFood(Player player){
         int meatCost = 100, hayCost = 50, saladCost = 30;
-        System.out.println("What food do you want? 1. Meat 100$/kg  2. Hay 50$/kg  3. Salad 30$/kg");
+        System.out.println("What food do you want? 1. Meat 100$/portion  2. Hay 50$/portion  3. Salad 30$/portion");
         int foodChosen = scan.nextInt();
-        System.out.println("How much in kgs?");
+        System.out.println("How many portions?");
         int amount = scan.nextInt();
 
         switch (foodChosen) {
@@ -145,12 +145,15 @@ public class Store {
 
         if (foodChosen == 1){
             player.setMeat(amount);
+            player.setPlayerMoney(-amount*meatCost);
         }
         else if (foodChosen == 2){
             player.setHay(amount);
+            player.setPlayerMoney(-amount*hayCost);
         }
         else if (foodChosen == 3){
             player.setSalad(amount);
+            player.setPlayerMoney(-amount*saladCost);
         }
 
     }

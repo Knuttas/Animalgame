@@ -30,10 +30,14 @@ public class Player {
         animalsOwned.add(animal);
     }
 
-    public void removeAnimalFromList(Animal animal){
-        //NEEDS WORK
-        animalsOwned.remove(animal);
+    public void printBreed(){
+        int counter =1;
+        for (Animal x : animalsOwned){
+            System.out.println(counter + ". " + x.getRace() + " " + x.getName());
+            counter++;
+        }
     }
+
     public void printAnimalList(){
         int counter = 1;
         for (Animal x : animalsOwned){
@@ -63,6 +67,9 @@ public class Player {
             System.out.println("You have fed " + animalsOwned.get(animalToFeed - 1).getName() + ". Health increased by 10%");
 
         }
+    }
+    public void killAnimal(Animal animal){
+        animalsOwned.remove(animal);
     }
 
     public void setMeat(int amount){

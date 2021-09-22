@@ -4,4 +4,8 @@ public class Dog extends Animal{
     }
 
 
+    public void feedHealth(){
+        this.health += 10;
+    }
+
 }
