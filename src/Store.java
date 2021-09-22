@@ -143,21 +143,6 @@ public class Store {
                 }
                 break;
         }
-
-//        if (foodChosen == 1){
-//            player.(amount);
-//            player.setPlayerMoney(-amount*meatCost);
-//        }
-//        else if (foodChosen == 2){
-//            player.setHay(amount);
-//            player.setPlayerMoney(-amount*hayCost);
-//        }
-//        else if (foodChosen == 3){
-//            player.setSalad(amount);
-//            player.setPlayerMoney(-amount*saladCost);
-//        }
-
-
         if (foodChosen == 1){
             player.setMeatOwned(amount);
             player.setPlayerMoney(-amount*meatCost);

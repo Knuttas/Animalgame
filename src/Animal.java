@@ -1,5 +1,10 @@
 import java.util.Objects;
 import java.util.Scanner;
+/**
+ * @author tvoul
+ * @author knuttas
+ * Player class
+ */
 
 public abstract class Animal {
     protected String name;
@@ -8,6 +13,7 @@ public abstract class Animal {
     protected String race;
     static Scanner scan = new Scanner(System.in);
 
+
     public Animal (String name, String race, int gender, int health){
         this.name = name;
         this.race = race;
@@ -15,10 +21,18 @@ public abstract class Animal {
         this.health = health;
     }
 
+    /**
+     * Get name
+     * @return get name
+     */
     public String getName(){
         return this.name;
     }
 
+    /**
+     * Get gender
+     * @return gender
+     */
     public int getGender(){
         return this.gender;
     }

@@ -3,6 +3,10 @@ public class Sheep extends Animal{
         super(name, race, gender, health);
     }
 
+    /**
+     *
+     * @param food
+     */
     public void feedHealth(Food food){
         if (food.getFoodName().equals("hay")){
             System.out.println("I like hay! My health increased by 10!");

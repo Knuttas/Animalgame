@@ -1,8 +1,19 @@
 public class Lizard extends Animal{
+
+    /**
+     * @author tvoul
+     * @author knuttas
+     * Player class
+     */
+
     public Lizard(String name, String race, int gender, int health) {
         super(name, race, gender, health);
     }
 
+    /**
+     * Add health, if food is accepted
+     * @param food
+     */
     public void feedHealth(Food food){
         if (food.getFoodName().equals("salad")){
             System.out.println("I like salad! My health increased by 10!");
