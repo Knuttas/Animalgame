@@ -1,18 +1,16 @@
+/**
+ * @author tvoul
+ * @author knuttas
+ * Lizard class extends Animal
+ */
 public class Lizard extends Animal{
-
-    /**
-     * @author tvoul
-     * @author knuttas
-     * Player class
-     */
-
     public Lizard(String name, String race, int gender, int health) {
         super(name, race, gender, health);
     }
 
     /**
-     * Add health, if food is accepted
-     * @param food
+     * Feed animal to increase health, if food type is correct
+     * @param food receive food to check type
      */
     public void feedHealth(Food food){
         if (food.getFoodName().equals("salad")){

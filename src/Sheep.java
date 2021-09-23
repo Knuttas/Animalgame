@@ -1,11 +1,16 @@
+/**
+ * @author tvoul
+ * @author knuttas
+ * Sheep class extends Animal
+ */
 public class Sheep extends Animal{
     public Sheep(String name, String race, int gender, int health) {
         super(name, race, gender, health);
     }
 
     /**
-     *
-     * @param food
+     * Feed animal to increase health, if food type is correct
+     * @param food receive food to check type
      */
     public void feedHealth(Food food){
         if (food.getFoodName().equals("hay")){

@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
+/**
+ * @author tvoul
+ * @author knuttas
+ * Game class
+ */
 
 public class Game {
     public Game() {
@@ -121,6 +126,5 @@ public class Game {
         }
         System.out.println("Game over! Thanks for playing.");
     }
-
     }
 

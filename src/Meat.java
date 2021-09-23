@@ -1,9 +1,10 @@
+/**
+ * @author tvoul
+ * @author knuttas
+ * Player class extends Food
+ */
+
 public class Meat extends Food{
-    /**
-     * @author tvoul
-     * @author knuttas
-     * Player class
-     */
 
     private int amountOwned;
     private String foodName = "meat";

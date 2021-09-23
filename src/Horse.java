@@ -1,8 +1,17 @@
+/**
+ * @author tvoul
+ * @author knuttas
+ * Horse class extends Animal
+ */
 public class Horse extends Animal{
     public Horse(String name, String race, int gender, int health) {
         super(name, race, gender, health);
     }
 
+    /**
+     * Feed animal to increase health, if food type is correct
+     * @param food receive food to check type
+     */
     public void feedHealth(Food food){
         if (food.getFoodName().equals("hay")){
             System.out.println("I like hay! My health increased by 10!");

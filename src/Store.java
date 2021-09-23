@@ -1,4 +1,9 @@
 import java.util.Scanner;
+/**
+ * @author tvoul
+ * @author knuttas
+ * Store class
+ */
 
 public class Store {
     static Scanner scan = new Scanner(System.in);

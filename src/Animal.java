@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * @author tvoul
  * @author knuttas
- * Player class
+ * Animal abstract class
  */
 
 public abstract class Animal {
@@ -22,7 +22,7 @@ public abstract class Animal {
     }
 
     /**
-     * Get name
+     * Get animal name
      * @return get name
      */
     public String getName(){
@@ -30,26 +30,46 @@ public abstract class Animal {
     }
 
     /**
-     * Get gender
+     * Get animal gender
      * @return gender
      */
     public int getGender(){
         return this.gender;
     }
 
+    /**
+     * Get animal race
+     * @return race
+     */
     public String getRace() { return this.race; }
 
+    /**
+     * Get animal health
+     * @return health
+     */
     public int getHealth(){
         return this.health;
     }
 
+    /**
+     * Feed animals to increase their health
+     * @param food receive different food types
+     */
     public abstract void feedHealth(Food food);
 
+    /**
+     * Reduce health, random 10-30
+     */
     public void depreciateHealth(){
         this.health -= (int) (Math.random()*(30-10)+10);
     }
 
-
+    /**
+     * Pair animals if they are of different gender, but same race
+     * @param player receive player to be able to add to animal list
+     * @param animal1 receive animal to check gender and race
+     * @param animal2 receive animal to check gender and race
+     */
     public static void pair(Player player, Animal animal1, Animal animal2){
 
         int pairChance = (int) (Math.random()*2+1);

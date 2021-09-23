@@ -1,12 +1,26 @@
-
+/**
+ * @author tvoul
+ * @author knuttas
+ * Food abstract class
+ */
 public abstract class Food {
 
+    /**
+     * Set amount food owned (abstract)
+     * @param amount
+     */
+    public abstract void setAmountOwned(int amount);
 
-    public void setAmountOwned(int amount) {
-    }
-
+    /**
+     * Get amount food owned (abstract)
+     * @return amount owned
+     */
     public abstract int getAmountOwned();
 
+    /**
+     * Get food name (abstract)
+     * @return food name
+     */
     public abstract String getFoodName();
 
 }
