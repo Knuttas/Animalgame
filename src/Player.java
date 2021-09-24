@@ -100,14 +100,14 @@ public class Player {
             System.out.println("Please choose which food:");
             System.out.println("1.Meat 2.Hay 3.Salad");
             int foodChosen = scan.nextInt();
-            if (foodChosen == 1 && meat.getAmountOwned() > 0) {
+            if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(meat);
-            } else if (foodChosen == 2 && hay.getAmountOwned() > 0) {
+            } else if (foodChosen == 2 && hay.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(hay);
-            } else if (foodChosen == 3 && salad.getAmountOwned() > 0) {
+            } else if (foodChosen == 3 && salad.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(salad);
             } else {
-                System.out.println("Invalid choice or not enough amount of chosen food.");
+                System.out.println("Invalid choice, not enough amount of chosen food or animal health already 100%.");
             }
         }
         System.out.println("Do you want to feed your animal again or feed another animal?");
