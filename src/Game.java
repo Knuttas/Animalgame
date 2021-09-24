@@ -57,7 +57,7 @@ public class Game {
                     Store.buyFood(players.get(x));
                 }
                 else if (choice == 3) {
-                    if (players.get(x).animalsOwned.isEmpty() == true) {
+                    if (players.get(x).animalsOwned.isEmpty()) {
                         System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
                         System.out.println("1. Go to store  2. End turn");
                         int goToStore = myScanner.nextInt();
