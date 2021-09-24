@@ -16,6 +16,9 @@ public class Dog extends Animal{
         if (food.getFoodName().equals("meat")) {
             System.out.println("I like meat! My health increased by 10!");
             this.health += 10;
+            if (this.health > 100){
+                this.health = 100;
+            }
             food.setAmountOwned(-1);
         }
         else if (food.getFoodName().equals("hay")){

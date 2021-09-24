@@ -16,11 +16,17 @@ public class Horse extends Animal{
         if (food.getFoodName().equals("hay")){
             System.out.println("I like hay! My health increased by 10!");
             this.health += 10;
+            if (this.health > 100){
+                this.health = 100;
+            }
             food.setAmountOwned(-1);
         }
         else if (food.getFoodName().equals("salad")){
             System.out.println("Hmm, not my first choice but i'll take it! My health increased by 5");
             this.health += 5;
+            if (this.health > 100){
+                this.health = 100;
+            }
             food.setAmountOwned(-1);
         }
         else if (food.getFoodName().equals("meat")){
