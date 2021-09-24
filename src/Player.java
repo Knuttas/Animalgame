@@ -92,6 +92,9 @@ public class Player {
                 Store.buyFood(player);
             }
         } else {
+            System.out.println("Meat " + meat.getAmountOwned() + " portions owned.");
+            System.out.println("Hay " + hay.getAmountOwned() + " portions owned.");
+            System.out.println("Salad " + salad.getAmountOwned() + " portions owned.");
             System.out.println("Please choose which animal to feed");
             int animalToFeed = scan.nextInt();
             System.out.println("Please choose which food:");
@@ -104,6 +107,12 @@ public class Player {
             } else if (foodChosen == 3) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(salad);
             }
+        }
+        System.out.println("Do you want to feed your animal again or feed another animal?");
+        System.out.println("1. Feed again  2. End turn");
+        int feedAgain = scan.nextInt();
+        if (feedAgain == 1) {
+            feedAnimal(player);
         }
     }
 

@@ -35,6 +35,12 @@ public class Game {
             for (int x = 0; x < players.size(); x++) {
 
                 System.out.println(players.get(x).getPlayerName() + "'s turn. You have " + players.get(x).getPlayerMoney() + " dollars available.");
+                for ( int z = 0; z < players.get(x).animalsOwned.size(); z++) {
+                    if (players.get(x).animalsOwned.get(z).getHealth() <= 0) {
+                        System.out.println(players.get(x).animalsOwned.get(z).getName() + " has died");
+                        players.get(x).animalsOwned.remove(z);
+                    }
+                }
                 if (!players.get(x).animalsOwned.isEmpty()){
                     players.get(x).printAnimalList();
                 }
@@ -83,13 +89,6 @@ public class Game {
                 }
                 for (Animal y : players.get(x).animalsOwned){
                     y.depreciateHealth();
-                }
-
-                for ( int z = 0; z < players.get(x).animalsOwned.size(); z++) {
-                    if (players.get(x).animalsOwned.get(z).getHealth() <= 0) {
-                        System.out.println(players.get(x).animalsOwned.get(z).getName() + " has died");
-                        players.get(x).animalsOwned.remove(z);
-                    }
                 }
 
 
