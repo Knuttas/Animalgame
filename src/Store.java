@@ -117,6 +117,12 @@ public class Store {
                     break;
             }
             player.animalsOwned.remove(whichToSell - 1);
+            System.out.println("Do you wish to sell another animal?");
+            System.out.println("1. Sell animal  2. End turn");
+            int sellAgain = scan.nextInt();
+            if (sellAgain == 1) {
+                sellAnimal(player);
+            }
         }
     }
 

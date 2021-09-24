@@ -142,4 +142,25 @@ public class Player {
         salad.setAmountOwned(amount);
     }
 
+    /**
+     * Returns the amount of meat owned
+     * @return
+     */
+    public int getMeatOwned(){ return meat.getAmountOwned(); }
+
+    /**
+     * Returns the amount of hay owned
+     * @return
+     */
+    public int getHayOwned(){ return hay.getAmountOwned(); }
+
+    /**
+     * Returns the amount of salad owned
+     * @return
+     */
+
+    public int getSaladOwned(){ return salad.getAmountOwned(); }
+
+
+
 }
