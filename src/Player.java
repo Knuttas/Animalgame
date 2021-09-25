@@ -38,7 +38,7 @@ public class Player {
 
     /**
      * Set player money
-     * @param amount
+     * @param amount amount of money
      */
     public void setPlayerMoney(int amount) {
         this.money += amount;
@@ -46,7 +46,7 @@ public class Player {
 
     /**
      * Add animal to players animal list
-     * @param animal
+     * @param animal animal to add
      */
     public void addAnimalToList(Animal animal){
         animalsOwned.add(animal);
@@ -75,10 +75,9 @@ public class Player {
     }
 
     /**
-     * Feed animal
-     * @param player
+     * Feed animals you own
      */
-    public void feedAnimal(Player player) {
+    public void feedAnimal() {
         int counter = 1;
         for (Animal x : animalsOwned) {
             System.out.println(counter + ". " + x.getName() + " " + x.getHealth() + "% health");
@@ -89,7 +88,7 @@ public class Player {
             System.out.println("1. Go to store  2. End turn");
             int goToStore = scan.nextInt();
             if (goToStore == 1) {
-                Store.buyFood(player);
+                Store.buyFood(this);
             }
         } else {
             System.out.println("Meat " + meat.getAmountOwned() + " portions owned.");
@@ -114,7 +113,7 @@ public class Player {
         System.out.println("1. Feed again  2. End turn");
         int feedAgain = scan.nextInt();
         if (feedAgain == 1) {
-            feedAnimal(player);
+            feedAnimal();
         }
     }
 

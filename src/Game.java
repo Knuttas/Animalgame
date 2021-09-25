@@ -64,7 +64,7 @@ public class Game {
                             Store.buyAnimal(players.get(x));
                         }
                     } else {
-                        players.get(x).feedAnimal(players.get(x));
+                        players.get(x).feedAnimal();
                     }
 
                 } else if (choice == 4) {
