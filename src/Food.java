@@ -4,6 +4,7 @@
  * Food abstract class
  */
 public abstract class Food {
+    protected int amountOwned;
 
     /**
      * Set amount food owned (abstract)

@@ -41,7 +41,9 @@ public abstract class Animal {
      * Get animal race
      * @return race
      */
-    public String getRace() { return this.race; }
+    public String getRace(){
+        return this.race;
+    }
 
     /**
      * Get animal health
@@ -107,7 +109,7 @@ public abstract class Animal {
             }
         else {
             System.out.println("Invalid breeding attempt!");
-        }
+            }
         }
 
     }

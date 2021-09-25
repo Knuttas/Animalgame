@@ -5,7 +5,6 @@
  */
 
 public class Salad extends Food{
-    private int amountOwned;
     private String foodName = "salad";
 
     /**

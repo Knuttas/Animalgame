@@ -4,7 +4,6 @@
  * Hay class extends Food
  */
 public class Hay extends Food{
-    private int amountOwned;
     private String foodName = "hay";
 
     /**

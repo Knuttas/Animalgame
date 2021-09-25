@@ -8,7 +8,10 @@ import java.util.Scanner;
 public class Store {
     static Scanner scan = new Scanner(System.in);
 
-
+    /**
+     * Buy animal
+     * @param player receive player to adjust animal list, food owned, money
+     */
     public static void buyAnimal(Player player) {
         int dogCost = 100, horseCost = 200, lizardCost = 300, cowCost = 400, sheepCost = 500;
         System.out.println("Pick animal: 1. Dog 100$  2. Horse 200$  3. Lizard 300$  4. Cow 400$  5. Sheep 500$");
@@ -79,10 +82,14 @@ public class Store {
         }
     }
 
+    /**
+     * Sell animal
+     * @param player receive player to adjust animal list and money
+     */
     public static void sellAnimal(Player player){
         int dogValue = 100, horseValue = 150, lizardValue = 225, cowValue = 300, sheepValue = 375;
 
-        if (player.animalsOwned.isEmpty() == true) {
+        if (player.animalsOwned.isEmpty()) {
             System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
             System.out.println("1. Go to store  2. End turn");
             int goToStore = scan.nextInt();
@@ -126,7 +133,10 @@ public class Store {
         }
     }
 
-
+    /**
+     * Buy food
+     * @param player receive player to adjust food owned and money
+     */
     public static void buyFood(Player player){
         int meatCost = 100, hayCost = 50, saladCost = 30;
         System.out.println("What food do you want? 1. Meat 100$/portion  2. Hay 50$/portion  3. Salad 30$/portion");

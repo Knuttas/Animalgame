@@ -120,7 +120,7 @@ public class Player {
 
     /**
      * Adjust amount meat owned
-     * @param amount
+     * @param amount of meat
      */
     public void setMeatOwned(int amount){
         meat.setAmountOwned(amount);
@@ -128,7 +128,7 @@ public class Player {
 
     /**
      * Adjust amount hay owned
-     * @param amount
+     * @param amount of hay
      */
     public void setHayOwned(int amount){
         hay.setAmountOwned(amount);
@@ -136,7 +136,7 @@ public class Player {
 
     /**
      * Adjust amount salad owned
-     * @param amount
+     * @param amount of salad
      */
     public void setSaladOwned(int amount){
         salad.setAmountOwned(amount);
@@ -144,21 +144,20 @@ public class Player {
 
     /**
      * Returns the amount of meat owned
-     * @return
+     * @return meat amount owned
      */
     public int getMeatOwned(){ return meat.getAmountOwned(); }
 
     /**
      * Returns the amount of hay owned
-     * @return
+     * @return hay amount owned
      */
     public int getHayOwned(){ return hay.getAmountOwned(); }
 
     /**
      * Returns the amount of salad owned
-     * @return
+     * @return salad amount owned
      */
-
     public int getSaladOwned(){ return salad.getAmountOwned(); }
 
 
