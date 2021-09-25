@@ -32,7 +32,7 @@ public class Game {
 
         for (int i = 0; i < amountOfRounds; i++) {
             for (int x = 0; x < players.size(); x++) {
-
+                System.out.println("Round: " + (i+1));
                 System.out.println(players.get(x).getPlayerName() + "'s turn. You have " + players.get(x).getPlayerMoney() + " dollars available.");
                 for ( int z = 0; z < players.get(x).animalsOwned.size(); z++) {
                     if (players.get(x).animalsOwned.get(z).getHealth() <= 0) {
@@ -98,6 +98,9 @@ public class Game {
                     System.out.println("Player " + players.get(x).getPlayerName() + " is out of money and animals and is removed from the game");
                     players.remove(x);
                 }
+            }
+            if (i == (amountOfRounds-1)){
+                System.out.println("That was the last round! All animals will now sell.");
             }
         }
         for (int k = 0; k < players.size(); k++) {
