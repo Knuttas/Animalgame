@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Player {
     private String name;
     private int money;
-    ArrayList<Animal> animalsOwned = new ArrayList<>();
+    private ArrayList<Animal> animalsOwned = new ArrayList<>();
     private Food hay = new Hay();
     private Food meat = new Meat();
     private Food salad = new Salad();
@@ -51,16 +51,14 @@ public class Player {
     public void addAnimalToList(Animal animal){
         animalsOwned.add(animal);
     }
-
-    /**
-     * Print breed - used in pairing for example
-     */
-    public void printBreed(){
-        int counter =1;
-        for (Animal x : animalsOwned){
-            System.out.println(counter + ". " + x.getRace() + " " + x.getName());
-            counter++;
-        }
+    public void removeAnimalFromList(int index){
+        animalsOwned.remove(index);
+    }
+    public int getAnimalListSize(){
+        return animalsOwned.size();
+    }
+    public Animal getAnimalFromList(int index){
+        return animalsOwned.get(index);
     }
 
     /**
@@ -70,6 +68,17 @@ public class Player {
         int counter = 1;
         for (Animal x : animalsOwned){
             System.out.println(counter + ". " + x.getName() + " " + x.getHealth() + "% health");
+            counter++;
+        }
+    }
+
+    /**
+     * Print breed - used in pairing for example
+     */
+    public void printBreed(){
+        int counter =1;
+        for (Animal x : animalsOwned){
+            System.out.println(counter + ". " + x.getRace() + " " + x.getName());
             counter++;
         }
     }

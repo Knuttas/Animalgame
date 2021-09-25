@@ -34,13 +34,13 @@ public class Game {
             for (int x = 0; x < players.size(); x++) {
                 System.out.println("Round: " + (i+1));
                 System.out.println(players.get(x).getPlayerName() + "'s turn. You have " + players.get(x).getPlayerMoney() + " dollars available.");
-                for ( int z = 0; z < players.get(x).animalsOwned.size(); z++) {
-                    if (players.get(x).animalsOwned.get(z).getHealth() <= 0) {
-                        System.out.println(players.get(x).animalsOwned.get(z).getName() + " has died");
-                        players.get(x).animalsOwned.remove(z);
+                for ( int z = 0; z < players.get(x).getAnimalListSize(); z++) {
+                    if (players.get(x).getAnimalFromList(z).getHealth() <= 0) {
+                        System.out.println(players.get(x).getAnimalFromList(z).getName() + " has died");
+                        players.get(x).removeAnimalFromList(z);
                     }
                 }
-                if (!players.get(x).animalsOwned.isEmpty()){
+                if (players.get(x).getAnimalListSize() != 0){
                     players.get(x).printAnimalList();
                 }
                 System.out.println("Meat: " + players.get(x).getMeatOwned() + " portions owned.");
@@ -56,7 +56,7 @@ public class Game {
                     Store.buyFood(players.get(x));
                 }
                 else if (choice == 3) {
-                    if (players.get(x).animalsOwned.isEmpty()) {
+                    if (players.get(x).getAnimalListSize() == 0) {
                         System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
                         System.out.println("1. Go to store  2. End turn");
                         int goToStore = myScanner.nextInt();
@@ -68,7 +68,7 @@ public class Game {
                     }
 
                 } else if (choice == 4) {
-                    if (players.get(x).animalsOwned.size() < 2) {
+                    if (players.get(x).getAnimalListSize() < 2) {
                         System.out.println("You don't have enough animals, do you want to go to the store and buy or end your turn?");
                         System.out.println("1. Go to store  2. End turn");
                         int goToStore = myScanner.nextInt();
@@ -82,19 +82,18 @@ public class Game {
                         int animal1 = myScanner.nextInt();
                         System.out.println("Please pick your second animal");
                         int animal2 = myScanner.nextInt();
-                        Animal.pair(players.get(x) , players.get(x).animalsOwned.get(animal1 -1), players.get(x).animalsOwned.get(animal2 -1));
+                        Animal.pair(players.get(x), players.get(x).getAnimalFromList(animal1 -1), players.get(x).getAnimalFromList(animal2 -2));
                     }
                 } else if (choice == 5) {
                     Store.sellAnimal(players.get(x));
                 } else {
                     System.out.println("Invalid choice");
                 }
-                for (Animal y : players.get(x).animalsOwned){
-                    y.depreciateHealth();
+                for (int p = 0; p < players.get(x).getAnimalListSize(); p++){
+                    players.get(x).getAnimalFromList(p).depreciateHealth();
                 }
-
-
-                if (players.get(x).getPlayerMoney() < 100 && players.get(x).animalsOwned.isEmpty()) {
+                
+                if (players.get(x).getPlayerMoney() < 100 && players.get(x).getAnimalListSize() == 0) {
                     System.out.println("Player " + players.get(x).getPlayerName() + " is out of money and animals and is removed from the game");
                     players.remove(x);
                 }
@@ -104,24 +103,24 @@ public class Game {
             }
         }
         for (int k = 0; k < players.size(); k++) {
-            if (!players.get(k).animalsOwned.isEmpty()){
-                for ( int j = 0; j < players.get(k).animalsOwned.size(); j++){
+            if (players.get(k).getAnimalListSize() != 1){
+                for ( int j = 0; j < players.get(k).getAnimalListSize(); j++){
                     int dogValue = 100, horseValue = 200, lizardValue = 300, cowValue = 400, sheepValue = 500;
-                    switch (players.get(k).animalsOwned.get(j).getRace()){
+                    switch (players.get(k).getAnimalFromList(j).getRace()){ //(players.get(k).animalsOwned.get(j).getRace()){
                         case "dog":
-                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * dogValue / 100);
+                            players.get(k).setPlayerMoney(players.get(k).getAnimalFromList(j).getHealth() * dogValue / 100);
                             break;
                         case "horse":
-                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * horseValue / 100);
+                            players.get(k).setPlayerMoney(players.get(k).getAnimalFromList(j).getHealth() * horseValue / 100);
                             break;
                         case "lizard":
-                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * lizardValue / 100);
+                            players.get(k).setPlayerMoney(players.get(k).getAnimalFromList(j).getHealth() * lizardValue / 100);
                             break;
                         case "cow":
-                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * cowValue / 100);
+                            players.get(k).setPlayerMoney(players.get(k).getAnimalFromList(j).getHealth() * cowValue / 100);
                             break;
                         case "sheep":
-                            players.get(k).setPlayerMoney(players.get(k).animalsOwned.get(j).getHealth() * sheepValue / 100);
+                            players.get(k).setPlayerMoney(players.get(k).getAnimalFromList(j).getHealth() * sheepValue / 100);
                             break;
                     }
                 }

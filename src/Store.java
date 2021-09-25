@@ -89,7 +89,7 @@ public class Store {
     public static void sellAnimal(Player player){
         int dogValue = 100, horseValue = 150, lizardValue = 225, cowValue = 300, sheepValue = 375;
 
-        if (player.animalsOwned.isEmpty()) {
+        if (player.getAnimalListSize() == 0) {
             System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
             System.out.println("1. Go to store  2. End turn");
             int goToStore = scan.nextInt();
@@ -101,29 +101,29 @@ public class Store {
             player.printAnimalList();
             int whichToSell = scan.nextInt();
 
-            switch (player.animalsOwned.get(whichToSell - 1).getRace()){
+            switch (player.getAnimalFromList(whichToSell -1).getRace()){
                 case "dog":
-                    player.setPlayerMoney(player.animalsOwned.get(whichToSell - 1).getHealth() * dogValue / 100);
-                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + player.animalsOwned.get(whichToSell - 1).getHealth() * dogValue / 100 + "$");
+                    player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * dogValue / 100);
+                    System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold. Gained" + player.getAnimalFromList(whichToSell - 1).getHealth() * dogValue / 100 + "$");
                     break;
                 case "horse":
-                    player.setPlayerMoney(player.animalsOwned.get(whichToSell - 1).getHealth() * horseValue / 100);
-                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + player.animalsOwned.get(whichToSell - 1).getHealth() * horseValue / 100 + "$");
+                    player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * horseValue / 100);
+                    System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold. Gained" + player.getAnimalFromList(whichToSell - 1).getHealth() * horseValue / 100 + "$");
                     break;
                 case "lizard":
-                    player.setPlayerMoney(player.animalsOwned.get(whichToSell - 1).getHealth() * lizardValue / 100);
-                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + player.animalsOwned.get(whichToSell - 1).getHealth() * lizardValue / 100 + "$");
+                    player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * lizardValue / 100);
+                    System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold. Gained" + player.getAnimalFromList(whichToSell - 1).getHealth() * lizardValue / 100 + "$");
                     break;
                 case "cow":
-                    player.setPlayerMoney(player.animalsOwned.get(whichToSell - 1).getHealth() * cowValue / 100);
-                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + player.animalsOwned.get(whichToSell - 1).getHealth() * cowValue / 100 + "$");
+                    player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * cowValue / 100);
+                    System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold. Gained" + player.getAnimalFromList(whichToSell - 1).getHealth() * cowValue / 100 + "$");
                     break;
                 case "sheep":
-                    player.setPlayerMoney(player.animalsOwned.get(whichToSell - 1).getHealth() * sheepValue / 100);
-                    System.out.println(player.animalsOwned.get(whichToSell - 1).getName() + " sold. Gained " + player.animalsOwned.get(whichToSell - 1).getHealth() * sheepValue / 100 + "$");
+                    player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * sheepValue / 100);
+                    System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold. Gained" + player.getAnimalFromList(whichToSell - 1).getHealth() * sheepValue / 100 + "$");
                     break;
             }
-            player.animalsOwned.remove(whichToSell - 1);
+            player.removeAnimalFromList(whichToSell -1);
             System.out.println("Do you wish to sell another animal?");
             System.out.println("1. Sell animal  2. End turn");
             int sellAgain = scan.nextInt();
