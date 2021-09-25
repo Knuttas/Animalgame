@@ -94,9 +94,9 @@ public class Player {
             System.out.println("Please choose which animal to feed");
             int animalToFeed = scan.nextInt();
             System.out.println("Please choose which food:");
-            System.out.println("Meat " + meat.getAmountOwned() + " portions owned.");
-            System.out.println("Hay " + hay.getAmountOwned() + " portions owned.");
-            System.out.println("Salad " + salad.getAmountOwned() + " portions owned.");
+            System.out.println("Meat: " + meat.getAmountOwned() + " portions owned.");
+            System.out.println("Hay: " + hay.getAmountOwned() + " portions owned.");
+            System.out.println("Salad: " + salad.getAmountOwned() + " portions owned.");
             System.out.println("1.Meat 2.Hay 3.Salad");
             int foodChosen = scan.nextInt();
             if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {

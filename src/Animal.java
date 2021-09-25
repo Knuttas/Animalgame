@@ -75,32 +75,82 @@ public abstract class Animal {
     public static void pair(Player player, Animal animal1, Animal animal2){
 
         int pairChance = (int) (Math.random()*2+1);
+        int amountOfCubs;
+        int gender;
+        String babyGender = "";
         if (pairChance == 1 && (animal1.getGender() != animal2.getGender()) && (Objects.equals(animal1.getRace(), animal2.getRace()))) {
-                int gender = (int) (Math.random()*2+1);
-                String babyGender = "";
-                if (gender == 1) {
-                    babyGender = "male";
-                } else if (gender == 2) {
-                    babyGender = "female";
-                }
-                System.out.println("Breed successful, congratulations you have a new " + babyGender + "!");
-                System.out.println("Please pick a name for your new animal!");
-                String name = scan.next();
                 if (animal1.getRace().equals("dog")) {
-                    Dog dog = new Dog(name, "dog", gender, 100);
-                    player.addAnimalToList(dog);
+                    amountOfCubs = (int) (Math.random()*6+1);
+                    System.out.println("Congratulations, breed successful! Amount of new dogs: " + amountOfCubs);
+                    for (int i = 0; i < amountOfCubs; i++) {
+                        gender = (int) (Math.random()*2+1);
+                        if (gender == 1) {
+                            babyGender = "male";
+                        } else if (gender == 2) {
+                            babyGender = "female";
+                        }
+                        System.out.println("Please pick a name for your new " + babyGender + "!");
+                        String name = scan.next();
+                        Dog dog = new Dog(name, "dog", gender, 100);
+                        player.addAnimalToList(dog);
+                    }
                 } else if (animal1.getRace().equals("horse")) {
-                    Horse horse = new Horse(name, "horse", gender, 100);
-                    player.addAnimalToList(horse);
+                    amountOfCubs = (int) (Math.random()*2+1);
+                    System.out.println("Congratulations, breed successful! Amount of new horses: " + amountOfCubs);
+                    for (int i = 0; i < amountOfCubs; i++) {
+                        gender = (int) (Math.random()*2+1);
+                        if (gender == 1) {
+                            babyGender = "male";
+                        } else if (gender == 2) {
+                            babyGender = "female";
+                        }
+                        System.out.println("Please pick a name for your new " + babyGender + "!");
+                        String name = scan.next();
+                        Horse horse = new Horse(name, "horse", gender, 100);
+                        player.addAnimalToList(horse);
+                    }
                 } else if (animal1.getRace().equals("lizard")) {
-                    Lizard lizard = new Lizard(name, "lizard", gender, 100);
-                    player.addAnimalToList(lizard);
+                    amountOfCubs = (int) (Math.random()*4+1);
+                    System.out.println("Congratulations, breed successful! Amount of new lizards: " + amountOfCubs);
+                    for (int i = 0; i < amountOfCubs; i++) {
+                        gender = (int) (Math.random()*2+1);
+                        if (gender == 1) {
+                            babyGender = "male";
+                        } else if (gender == 2) {
+                            babyGender = "female";
+                        }
+                        System.out.println("Please pick a name for your new " + babyGender + "!");
+                        String name = scan.next();
+                        Lizard lizard = new Lizard(name, "lizard", gender, 100);
+                        player.addAnimalToList(lizard);
+                    }
                 } else if (animal1.getRace().equals("cow")) {
+                    gender = (int) (Math.random()*2+1);
+                    System.out.println("Congratulations, breed successful! Cows only have one calf.");
+                    if (gender == 1) {
+                        babyGender = "male";
+                    } else if (gender == 2) {
+                        babyGender = "female";
+                    }
+                    System.out.println("Please pick a name for your new " + babyGender + "!");
+                    String name = scan.next();
                     Cow cow = new Cow(name, "cow", gender, 100);
                     player.addAnimalToList(cow);
                 } else if (animal1.getRace().equals("sheep")) {
-                    Sheep sheep = new Sheep(name, "sheep", gender, 100);
-                    player.addAnimalToList(sheep);
+                    amountOfCubs = (int) (Math.random()*4+1);
+                    System.out.println("Congratulations, breed successful! Amount of new sheep: " + amountOfCubs);
+                    for (int i = 0; i < amountOfCubs; i++) {
+                        gender = (int) (Math.random()*2+1);
+                        if (gender == 1) {
+                            babyGender = "male";
+                        } else if (gender == 2) {
+                            babyGender = "female";
+                        }
+                        System.out.println("Please pick a name for your new " + babyGender + "!");
+                        String name = scan.next();
+                        Sheep sheep = new Sheep(name, "sheep", gender, 100);
+                        player.addAnimalToList(sheep);
+                    }
                 }
 
             }
