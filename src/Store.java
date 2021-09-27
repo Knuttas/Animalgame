@@ -145,9 +145,9 @@ public class Store {
      */
     public static void buyFood(Player player){
         int meatCost = 100, hayCost = 50, saladCost = 30;
-        System.out.println("What food do you want? 1. Meat 100$/portion  2. Hay 50$/portion  3. Salad 30$/portion");
+        System.out.println("What food do you want? 1. Meat 100$/kg  2. Hay 50$/kg  3. Salad 30$/kg");
         int foodChosen = scan.nextInt();
-        System.out.println("How many portions?");
+        System.out.println("How many kgs?");
         int amount = scan.nextInt();
 
         switch (foodChosen) {

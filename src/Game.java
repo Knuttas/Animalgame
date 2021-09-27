@@ -43,9 +43,9 @@ public class Game {
                 if (players.get(x).getAnimalListSize() != 0){
                     players.get(x).printAnimalList();
                 }
-                System.out.println("Meat: " + players.get(x).getMeatOwned() + " portions owned.");
-                System.out.println("Hay: " + players.get(x).getHayOwned() + " portions owned.");
-                System.out.println("Salad: " + players.get(x).getSaladOwned() + " portions owned.");
+                System.out.println("Meat: " + players.get(x).getMeatOwned() + " kgs owned.");
+                System.out.println("Hay: " + players.get(x).getHayOwned() + " kgs owned.");
+                System.out.println("Salad: " + players.get(x).getSaladOwned() + " kgs owned.");
                 System.out.println("Please choose one of the following: ");
                 System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
                 int choice = myScanner.nextInt();
