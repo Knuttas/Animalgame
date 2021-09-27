@@ -51,12 +51,28 @@ public class Player {
     public void addAnimalToList(Animal animal){
         animalsOwned.add(animal);
     }
+
+    /**
+     *
+     * @param index
+     */
     public void removeAnimalFromList(int index){
         animalsOwned.remove(index);
     }
+
+    /**
+     * Get animal list size
+     * @return animal list size
+     */
     public int getAnimalListSize(){
         return animalsOwned.size();
     }
+
+    /**
+     * Get animal from list
+     * @param index send place in list
+     * @return animal at this index
+     */
     public Animal getAnimalFromList(int index){
         return animalsOwned.get(index);
     }

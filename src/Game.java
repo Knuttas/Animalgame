@@ -34,7 +34,7 @@ public class Game {
             for (int x = 0; x < players.size(); x++) {
                 System.out.println("Round: " + (i+1));
                 System.out.println(players.get(x).getPlayerName() + "'s turn. You have " + players.get(x).getPlayerMoney() + " dollars available.");
-                for ( int z = 0; z < players.get(x).getAnimalListSize(); z++) {
+                for (int z = 0; z < players.get(x).getAnimalListSize(); z++) {
                     if (players.get(x).getAnimalFromList(z).getHealth() <= 0) {
                         System.out.println(players.get(x).getAnimalFromList(z).getName() + " has died");
                         players.get(x).removeAnimalFromList(z);
