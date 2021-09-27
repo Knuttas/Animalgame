@@ -82,7 +82,7 @@ public class Game {
                         int animal1 = myScanner.nextInt();
                         System.out.println("Please pick your second animal");
                         int animal2 = myScanner.nextInt();
-                        Animal.pair(players.get(x), players.get(x).getAnimalFromList(animal1 -1), players.get(x).getAnimalFromList(animal2 -2));
+                        Animal.pair(players.get(x), players.get(x).getAnimalFromList(animal1 -1), players.get(x).getAnimalFromList(animal2 -1));
                     }
                 } else if (choice == 5) {
                     Store.sellAnimal(players.get(x));
@@ -92,7 +92,7 @@ public class Game {
                 for (int p = 0; p < players.get(x).getAnimalListSize(); p++){
                     players.get(x).getAnimalFromList(p).depreciateHealth();
                 }
-                
+
                 if (players.get(x).getPlayerMoney() < 100 && players.get(x).getAnimalListSize() == 0) {
                     System.out.println("Player " + players.get(x).getPlayerName() + " is out of money and animals and is removed from the game");
                     players.remove(x);
@@ -106,7 +106,7 @@ public class Game {
             if (players.get(k).getAnimalListSize() != 1){
                 for ( int j = 0; j < players.get(k).getAnimalListSize(); j++){
                     int dogValue = 100, horseValue = 200, lizardValue = 300, cowValue = 400, sheepValue = 500;
-                    switch (players.get(k).getAnimalFromList(j).getRace()){ //(players.get(k).animalsOwned.get(j).getRace()){
+                    switch (players.get(k).getAnimalFromList(j).getRace()){
                         case "dog":
                             players.get(k).setPlayerMoney(players.get(k).getAnimalFromList(j).getHealth() * dogValue / 100);
                             break;
@@ -126,6 +126,26 @@ public class Game {
                 }
             }
             System.out.println(players.get(k).getPlayerName() + "'s total amount of money is " + players.get(k).getPlayerMoney() + "$");
+        }
+        if (amountOfPlayers > 1) {
+            int winner = 0;
+            String winnerName = "";
+            int gameTied = 0;
+            for (int q = 0; q < amountOfPlayers; q++) {
+                if (winner < players.get(q).getPlayerMoney()){
+                    winner = players.get(q).getPlayerMoney();
+                    winnerName = players.get(q).getPlayerName();
+                }
+                else if (winner == players.get(q).getPlayerMoney()){
+                    gameTied = 1;
+                }
+            }
+            if (gameTied == 0){
+                System.out.println("The winner is " + winnerName + " with " + winner + "$!");
+            }
+            else {
+                System.out.println("Tied game!");
+            }
         }
         System.out.println("Game over! Thanks for playing.");
     }

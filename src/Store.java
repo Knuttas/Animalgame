@@ -54,10 +54,10 @@ public class Store {
         }
 
         for (int i = 0; i < amountOfAnimals; i++) {
-            System.out.println("Enter name");
-            String name = scan.next();
             System.out.println("Pick gender - 1 male, 2 female");
             int gender = scan.nextInt();
+            System.out.println("Enter name");
+            String name = scan.next();
             if (animalPick == 1) {
                 Dog dog = new Dog(name, "dog", gender, 100);
                 player.addAnimalToList(dog);
@@ -79,6 +79,12 @@ public class Store {
                 player.addAnimalToList(sheep);
                 player.setPlayerMoney(-sheepCost);
             }
+        }
+        System.out.println("Do you want to buy more animals?");
+        System.out.println("1. Buy more animals  2. End turn");
+        int buyMore = scan.nextInt();
+        if (buyMore == 1){
+            buyAnimal(player);
         }
     }
 

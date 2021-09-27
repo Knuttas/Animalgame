@@ -78,7 +78,7 @@ public abstract class Animal {
         int amountOfCubs;
         int gender;
         String babyGender = "";
-        if (pairChance == 1 && (animal1.getGender() != animal2.getGender()) && (Objects.equals(animal1.getRace(), animal2.getRace()))) {
+        if (pairChance == 1 && (animal1.getGender() != animal2.getGender()) && (Objects.equals(animal1.getRace(), animal2.getRace()))){
                 if (animal1.getRace().equals("dog")) {
                     amountOfCubs = (int) (Math.random()*6+1);
                     System.out.println("Congratulations, breed successful! Amount of new dogs: " + amountOfCubs);
