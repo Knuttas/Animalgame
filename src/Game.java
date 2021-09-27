@@ -130,23 +130,12 @@ public class Game {
         }
         if (amountOfPlayers > 1) {
             int winner = 0;
-            String winnerName = "";
-            int gameTied = 0;
             for (int q = 0; q < amountOfPlayers; q++) {
                 if (winner < players.get(q).getPlayerMoney()){
                     winner = players.get(q).getPlayerMoney();
-                    winnerName = players.get(q).getPlayerName();
-                }
-                else if (winner == players.get(q).getPlayerMoney()){
-                    gameTied = 1;
                 }
             }
-            if (gameTied == 0){
-                System.out.println("The winner is " + winnerName + " with " + winner + "$!");
-            }
-            else {
-                System.out.println("Tied game!");
-            }
+            System.out.println("The winning total amount is" + winner + "$!");
         }
         System.out.println("Game over! Thanks for playing.");
     }
