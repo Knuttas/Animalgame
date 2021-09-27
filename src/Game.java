@@ -130,12 +130,14 @@ public class Game {
         }
         if (amountOfPlayers > 1) {
             int winner = 0;
+            String nameWinner = "";
             for (int q = 0; q < amountOfPlayers; q++) {
                 if (winner < players.get(q).getPlayerMoney()){
                     winner = players.get(q).getPlayerMoney();
+                    nameWinner = players.get(q).getPlayerName();
                 }
             }
-            System.out.println("The winning total amount is" + winner + "$!");
+            System.out.println("The winner is " + nameWinner + "with " + winner + "$!");
         }
         System.out.println("Game over! Thanks for playing.");
     }
