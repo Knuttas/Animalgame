@@ -38,6 +38,7 @@ public class Game {
                     if (players.get(x).getAnimalFromList(z).getHealth() <= 0) {
                         System.out.println(players.get(x).getAnimalFromList(z).getName() + " has died");
                         players.get(x).removeAnimalFromList(z);
+                        z -= 1;
                     }
                 }
                 if (players.get(x).getAnimalListSize() != 0){
