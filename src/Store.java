@@ -182,5 +182,11 @@ public class Store {
             player.setSaladOwned(amount);
             player.setPlayerMoney(-amount*saladCost);
         }
+        System.out.println("Do you want to buy more food?");
+        System.out.println("1. Buy more food  2. End turn");
+        int buyMoreFood = scan.nextInt();
+        if (buyMoreFood == 1){
+            buyFood(player);
+        }
     }
 }

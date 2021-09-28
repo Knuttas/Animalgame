@@ -137,7 +137,7 @@ public class Game {
                     nameWinner = players.get(q).getPlayerName();
                 }
             }
-            System.out.println("The winner is " + nameWinner + "with " + winner + "$!");
+            System.out.println("The winner is " + nameWinner + " with " + winner + "$!");
         }
         System.out.println("Game over! Thanks for playing.");
     }
