@@ -23,7 +23,10 @@ public class Store {
             animalPick = scan.nextInt();
         } while (animalPick <= 0 || animalPick > 5);
         System.out.println("How many of chosen animal category do you want?");
-        int amountOfAnimals = scan.nextInt();
+        int amountOfAnimals;
+        do {
+            amountOfAnimals = scan.nextInt();
+        } while (amountOfAnimals > 0);
 
         switch (animalPick) {
             case 1:
@@ -167,7 +170,10 @@ public class Store {
                 foodChosen = scan.nextInt();
             } while (foodChosen != 1 && foodChosen != 2 && foodChosen != 3);
             System.out.println("How many kgs?");
-            int amount = scan.nextInt();
+            int amount;
+            do {
+                amount = scan.nextInt();
+            } while (amount < 0);
 
             switch (foodChosen) {
                 case 1:
