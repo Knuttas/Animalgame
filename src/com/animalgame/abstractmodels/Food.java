@@ -1,7 +1,9 @@
+package com.animalgame.abstractmodels;
+
 /**
  * @author tvoul
  * @author knuttas
- * Food abstract class
+ * com.animalgame.abstractmodels.Food abstract class
  */
 public abstract class Food {
     protected int amountOwned;

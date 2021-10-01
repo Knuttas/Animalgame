@@ -1,9 +1,14 @@
+package com.animalgame.animals;
+
+import com.animalgame.abstractmodels.Animal;
+import com.animalgame.abstractmodels.Food;
+
 /**
  * @author tvoul
  * @author knuttas
- * Dog class extends Animal
+ * com.animalgame.animals.Dog class extends com.animalgame.abstractmodels.Animal
  */
-public class Dog extends Animal{
+public class Dog extends Animal {
     public Dog(String name, String race, int gender, int health) {
         super(name, race, gender, health);
     }

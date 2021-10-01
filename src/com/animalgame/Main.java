@@ -1,7 +1,8 @@
+package com.animalgame;
+
 /**
- * @author tvoul
- * @author knuttas
- * Main class
+ * @author knuttas, tvoul
+ * com.animalgame.Main class
  */
 public class Main {
     public static void main(String[] args) {

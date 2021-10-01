@@ -1,14 +1,28 @@
+package com.animalgame;
+
+import com.animalgame.abstractmodels.Animal;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * @author tvoul
  * @author knuttas
- * Game class
+ * com.animalgame.Game class
  */
 
 public class Game {
+
+    ArrayList<Player> players;
     public Game() {
         Scanner myScanner = new Scanner(System.in);
+        players = new ArrayList<>();
+
+        System.out.println("Enter amount of rounds 5-30");
+        int amountOfRounds = myScanner.nextInt();
+        while (amountOfRounds < 5 || amountOfRounds > 30) {
+            System.out.println("Please enter a number between 5-30");
+            amountOfRounds = myScanner.nextInt();
+        }
 
         System.out.println("Enter amount of players 1-4");
         int amountOfPlayers = myScanner.nextInt();
@@ -16,18 +30,10 @@ public class Game {
             System.out.println("Please enter a number between 1-4");
             amountOfPlayers = myScanner.nextInt();
         }
-        ArrayList<Player> players = new ArrayList<>();
         for (int i = 0; i < amountOfPlayers; i++){
             System.out.println("Enter player name");
             String inputName = myScanner.next();
             players.add(new Player(inputName, 10000));
-        }
-
-        System.out.println("Enter amount of rounds 5-30");
-        int amountOfRounds = myScanner.nextInt();
-        while (amountOfRounds < 5 || amountOfRounds > 30) {
-            System.out.println("Please enter a number between 5-30");
-            amountOfRounds = myScanner.nextInt();
         }
 
         for (int i = 0; i < amountOfRounds; i++) {
@@ -97,6 +103,7 @@ public class Game {
                 if (players.get(x).getPlayerMoney() < 100 && players.get(x).getAnimalListSize() == 0) {
                     System.out.println("Player " + players.get(x).getPlayerName() + " is out of money and animals and is removed from the game");
                     players.remove(x);
+                    x -= 1;
                 }
             }
             if (i == (amountOfRounds-1)){
@@ -128,10 +135,10 @@ public class Game {
             }
             System.out.println(players.get(k).getPlayerName() + "'s total amount of money is " + players.get(k).getPlayerMoney() + "$");
         }
-        if (amountOfPlayers > 1) {
+        if (players.size() > 1) {
             int winner = 0;
             String nameWinner = "";
-            for (int q = 0; q < amountOfPlayers; q++) {
+            for (int q = 0; q < players.size(); q++) {
                 if (winner < players.get(q).getPlayerMoney()){
                     winner = players.get(q).getPlayerMoney();
                     nameWinner = players.get(q).getPlayerName();

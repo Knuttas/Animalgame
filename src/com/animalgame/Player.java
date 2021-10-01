@@ -1,10 +1,18 @@
+package com.animalgame;
+
+import com.animalgame.abstractmodels.Animal;
+import com.animalgame.abstractmodels.Food;
+import com.animalgame.food.Hay;
+import com.animalgame.food.Meat;
+import com.animalgame.food.Salad;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * @author tvoul
  * @author knuttas
- * Player class
+ * com.animalgame.Player class
  */
 
 public class Player {
@@ -119,10 +127,10 @@ public class Player {
             System.out.println("Please choose which animal to feed");
             int animalToFeed = scan.nextInt();
             System.out.println("Please choose which food:");
-            System.out.println("Meat: " + meat.getAmountOwned() + " kgs owned.");
-            System.out.println("Hay: " + hay.getAmountOwned() + " kgs owned.");
-            System.out.println("Salad: " + salad.getAmountOwned() + " kgs owned.");
-            System.out.println("1.Meat 2.Hay 3.Salad");
+            System.out.println("com.animalgame.food.Meat: " + meat.getAmountOwned() + " kgs owned.");
+            System.out.println("com.animalgame.food.Hay: " + hay.getAmountOwned() + " kgs owned.");
+            System.out.println("com.animalgame.food.Salad: " + salad.getAmountOwned() + " kgs owned.");
+            System.out.println("1.com.animalgame.food.Meat 2.com.animalgame.food.Hay 3.com.animalgame.food.Salad");
             int foodChosen = scan.nextInt();
             if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(meat);

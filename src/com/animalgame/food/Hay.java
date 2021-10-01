@@ -1,14 +1,17 @@
+package com.animalgame.food;
+
+import com.animalgame.abstractmodels.Food;
+
 /**
  * @author tvoul
  * @author knuttas
- * Salad class extends Food
+ * com.animalgame.food.Hay class extends com.animalgame.abstractmodels.Food
  */
-
-public class Salad extends Food{
-    private String foodName = "salad";
+public class Hay extends Food {
+    private String foodName = "hay";
 
     /**
-     * Set amount owned
+     * Adjust amount owned
      * @param amount
      */
     public void setAmountOwned(int amount){

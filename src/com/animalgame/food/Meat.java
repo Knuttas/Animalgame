@@ -1,10 +1,14 @@
+package com.animalgame.food;
+
+import com.animalgame.abstractmodels.Food;
+
 /**
  * @author tvoul
  * @author knuttas
- * Player class extends Food
+ * com.animalgame.Player class extends com.animalgame.abstractmodels.Food
  */
 
-public class Meat extends Food{
+public class Meat extends Food {
     private String foodName = "meat";
 
     /**

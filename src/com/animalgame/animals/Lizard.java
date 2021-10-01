@@ -1,10 +1,15 @@
+package com.animalgame.animals;
+
+import com.animalgame.abstractmodels.Animal;
+import com.animalgame.abstractmodels.Food;
+
 /**
  * @author tvoul
  * @author knuttas
- * Cow class extends Animal
+ * com.animalgame.animals.Lizard class extends com.animalgame.abstractmodels.Animal
  */
-public class Cow extends Animal{
-    public Cow(String name, String race, int gender, int health) {
+public class Lizard extends Animal {
+    public Lizard(String name, String race, int gender, int health) {
         super(name, race, gender, health);
     }
 
@@ -13,15 +18,15 @@ public class Cow extends Animal{
      * @param food receive food to check type
      */
     public void feedHealth(Food food){
-        if (food.getFoodName().equals("hay")){
-            System.out.println("I like hay! My health increased by 10!");
+        if (food.getFoodName().equals("salad")){
+            System.out.println("I like salad! My health increased by 10!");
             this.health += 10;
             if (this.health > 100){
                 this.health = 100;
             }
             food.setAmountOwned(-1);
         }
-        else if (food.getFoodName().equals("salad")){
+        else if (food.getFoodName().equals("hay")){
             System.out.println("Hmm, not my first choice but i'll take it! My health increased by 5");
             this.health += 5;
             if (this.health > 100){

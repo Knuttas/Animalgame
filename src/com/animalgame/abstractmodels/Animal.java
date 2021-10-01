@@ -1,9 +1,14 @@
+package com.animalgame.abstractmodels;
+
+import com.animalgame.*;
+import com.animalgame.animals.*;
+
 import java.util.Objects;
 import java.util.Scanner;
 /**
  * @author tvoul
  * @author knuttas
- * Animal abstract class
+ * com.animalgame.abstractmodels.Animal abstract class
  */
 
 public abstract class Animal {
