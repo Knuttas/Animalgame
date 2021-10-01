@@ -61,7 +61,10 @@ public class Store {
 
         for (int i = 0; i < amountOfAnimals; i++) {
             System.out.println("Pick gender - 1 male, 2 female");
-            int gender = scan.nextInt();
+            int gender;
+            do {
+                gender = scan.nextInt();
+            } while (gender <= 0 || gender > 2);
             System.out.println("Enter name");
             String name = scan.next();
             if (animalPick == 1) {
