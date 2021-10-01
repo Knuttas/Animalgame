@@ -69,6 +69,9 @@ public abstract class Animal {
      */
     public void depreciateHealth(){
         this.health -= (int) (Math.random()*(30-10)+10);
+        if (this.health < 0){
+            this.health = 0;
+        }
     }
 
     /**

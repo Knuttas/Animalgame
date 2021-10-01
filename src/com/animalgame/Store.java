@@ -18,7 +18,10 @@ public class Store {
     public static void buyAnimal(Player player) {
         int dogCost = 100, horseCost = 200, lizardCost = 300, cowCost = 400, sheepCost = 500;
         System.out.println("Pick animal: 1.Dog 100$  2.Horse 200$  3.Lizard 300$  4.Cow 400$  5.Sheep 500$");
-        int animalPick = scan.nextInt();
+        int animalPick;
+        do {
+            animalPick = scan.nextInt();
+        } while (animalPick <= 0 || animalPick > 5);
         System.out.println("How many of chosen animal category do you want?");
         int amountOfAnimals = scan.nextInt();
 
@@ -108,7 +111,10 @@ public class Store {
         } else {
             System.out.println("These are your animals, which one would you like to sell?");
             player.printAnimalList();
-            int whichToSell = scan.nextInt();
+            int whichToSell;
+            do {
+                whichToSell = scan.nextInt();
+            } while (whichToSell <= 0 || whichToSell > player.getAnimalListSize());
 
             switch (player.getAnimalFromList(whichToSell -1).getRace()){
                 case "dog":
@@ -147,50 +153,58 @@ public class Store {
      * @param player receive player to adjust food owned and money
      */
     public static void buyFood(Player player){
-        int buyMoreFood = 0;
-        int meatCost = 100, hayCost = 50, saladCost = 30;
-        System.out.println("What food do you want? 1.Meat 100$/kg  2.Hay 50$/kg  3.Salad 30$/kg");
-        int foodChosen = scan.nextInt();
-        System.out.println("How many kgs?");
-        int amount = scan.nextInt();
+        if (player.getPlayerMoney() < 30) {
+            System.out.println("You can't afford any food. Ending turn.");
+        } else {
+            int buyMoreFood = 0;
+            int meatCost = 100, hayCost = 50, saladCost = 30;
+            System.out.println("What food do you want? 1.Meat 100$/kg  2.Hay 50$/kg  3.Salad 30$/kg");
+            int foodChosen;
+            do {
+                foodChosen = scan.nextInt();
+            } while (foodChosen != 1 && foodChosen != 2 && foodChosen != 3);
+            System.out.println("How many kgs?");
+            int amount = scan.nextInt();
 
-        switch (foodChosen) {
-            case 1:
-                if (meatCost * amount > player.getPlayerMoney()) {
-                    System.out.println("You can't afford that, try again");
-                    buyFood(player);
-                }
-                break;
-            case 2:
-                if (hayCost * amount > player.getPlayerMoney()) {
-                    System.out.println("You can't afford that, try again");
-                    buyFood(player);
-                }
-                break;
-            case 3:
-                if (saladCost * amount > player.getPlayerMoney()) {
-                    System.out.println("You can't afford that, try again");
-                    buyFood(player);
-                }
-                break;
+            switch (foodChosen) {
+                case 1:
+                    if (meatCost * amount > player.getPlayerMoney()) {
+                        System.out.println("You can't afford that, try again");
+                        buyFood(player);
+                    }
+                    break;
+                case 2:
+                    if (hayCost * amount > player.getPlayerMoney()) {
+                        System.out.println("You can't afford that, try again");
+                        buyFood(player);
+                    }
+                    break;
+                case 3:
+                    if (saladCost * amount > player.getPlayerMoney()) {
+                        System.out.println("You can't afford that, try again");
+                        buyFood(player);
+                    }
+                    break;
+            }
+            if (foodChosen == 1){
+                player.setMeatOwned(amount);
+                player.setPlayerMoney(-amount*meatCost);
+            }
+            else if (foodChosen == 2){
+                player.setHayOwned(amount);
+                player.setPlayerMoney(-amount*hayCost);
+            }
+            else if (foodChosen == 3){
+                player.setSaladOwned(amount);
+                player.setPlayerMoney(-amount*saladCost);
+            }
+            System.out.println("Do you want to buy more food?");
+            System.out.println("1. Buy more food  2. End turn");
+            buyMoreFood = scan.nextInt();
+            if (buyMoreFood == 1){
+                buyFood(player);
+            }
         }
-        if (foodChosen == 1){
-            player.setMeatOwned(amount);
-            player.setPlayerMoney(-amount*meatCost);
-        }
-        else if (foodChosen == 2){
-            player.setHayOwned(amount);
-            player.setPlayerMoney(-amount*hayCost);
-        }
-        else if (foodChosen == 3){
-            player.setSaladOwned(amount);
-            player.setPlayerMoney(-amount*saladCost);
-        }
-        System.out.println("Do you want to buy more food?");
-        System.out.println("1. Buy more food  2. End turn");
-        buyMoreFood = scan.nextInt();
-        if (buyMoreFood == 1){
-            buyFood(player);
-        }
+
     }
 }

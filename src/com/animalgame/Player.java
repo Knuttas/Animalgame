@@ -91,7 +91,7 @@ public class Player {
     public void printAnimalList(){
         int counter = 1;
         for (Animal x : animalsOwned){
-            System.out.println(counter + ". " + x.getName() + " " + x.getHealth() + "% health");
+            System.out.println(counter + ". " + x.getName() + " " + x.getRace() + " " + (x.getGender() == 1 ? "male" : "female") + " " + x.getHealth() + "% health");
             counter++;
         }
     }
@@ -102,7 +102,7 @@ public class Player {
     public void printBreed(){
         int counter =1;
         for (Animal x : animalsOwned){
-            System.out.println(counter + ". " + x.getRace() + " " + x.getName());
+            System.out.println(counter + ". " + x.getRace() + " " + x.getName() + " " + (x.getGender() == 1 ? "male" : "female"));
             counter++;
         }
     }
@@ -125,13 +125,19 @@ public class Player {
             }
         } else {
             System.out.println("Please choose which animal to feed");
-            int animalToFeed = scan.nextInt();
+            int animalToFeed;
+            do {
+                animalToFeed = scan.nextInt();
+            } while (animalToFeed <= 0 || animalToFeed > animalsOwned.size());
             System.out.println("Please choose which food:");
-            System.out.println("com.animalgame.food.Meat: " + meat.getAmountOwned() + " kgs owned.");
-            System.out.println("com.animalgame.food.Hay: " + hay.getAmountOwned() + " kgs owned.");
-            System.out.println("com.animalgame.food.Salad: " + salad.getAmountOwned() + " kgs owned.");
-            System.out.println("1.com.animalgame.food.Meat 2.com.animalgame.food.Hay 3.com.animalgame.food.Salad");
-            int foodChosen = scan.nextInt();
+            System.out.println("Meat: " + meat.getAmountOwned() + " kgs owned.");
+            System.out.println("Hay: " + hay.getAmountOwned() + " kgs owned.");
+            System.out.println("Salad: " + salad.getAmountOwned() + " kgs owned.");
+            System.out.println("1.Meat 2.Hay 3.Salad");
+            int foodChosen;
+            do {
+                foodChosen = scan.nextInt();
+            } while (foodChosen <= 0 || foodChosen > 3);
             if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(meat);
             } else if (foodChosen == 2 && hay.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
