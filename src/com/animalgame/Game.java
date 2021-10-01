@@ -36,83 +36,83 @@ public class Game {
             players.add(new Player(inputName, 10000));
         }
 
-        for (int i = 0; i < amountOfRounds; i++) {
-            for (int x = 0; x < players.size(); x++) {
-                System.out.println("Round: " + (i+1));
-                System.out.println(players.get(x).getPlayerName() + "'s turn. You have " + players.get(x).getPlayerMoney() + " dollars available.");
-                for (int z = 0; z < players.get(x).getAnimalListSize(); z++) {
-                    if (players.get(x).getAnimalFromList(z).getHealth() <= 0) {
-                        System.out.println(players.get(x).getAnimalFromList(z).getName() + " has died");
-                        players.get(x).removeAnimalFromList(z);
+        for (int roundCounter = 0; roundCounter < amountOfRounds; roundCounter++) {
+            for (int playerCounter = 0; playerCounter < players.size(); playerCounter++) {
+                System.out.println("Round: " + (roundCounter+1));
+                System.out.println(players.get(playerCounter).getPlayerName() + "'s turn. You have " + players.get(playerCounter).getPlayerMoney() + " dollars available.");
+                for (int z = 0; z < players.get(playerCounter).getAnimalListSize(); z++) {
+                    if (players.get(playerCounter).getAnimalFromList(z).getHealth() <= 0) {
+                        System.out.println(players.get(playerCounter).getAnimalFromList(z).getName() + " has died");
+                        players.get(playerCounter).removeAnimalFromList(z);
                         z -= 1;
                     }
                 }
-                if (players.get(x).getAnimalListSize() != 0){
-                    players.get(x).printAnimalList();
+                if (players.get(playerCounter).getAnimalListSize() != 0){
+                    players.get(playerCounter).printAnimalList();
                 }
-                System.out.println("Meat: " + players.get(x).getMeatOwned() + " kgs owned.");
-                System.out.println("Hay: " + players.get(x).getHayOwned() + " kgs owned.");
-                System.out.println("Salad: " + players.get(x).getSaladOwned() + " kgs owned.");
+                System.out.println("Meat: " + players.get(playerCounter).getMeatOwned() + " kgs owned.");
+                System.out.println("Hay: " + players.get(playerCounter).getHayOwned() + " kgs owned.");
+                System.out.println("Salad: " + players.get(playerCounter).getSaladOwned() + " kgs owned.");
                 System.out.println("Please choose one of the following: ");
                 System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
                 int choice = myScanner.nextInt();
                 if (choice == 1){
-                    Store.buyAnimal(players.get(x));
+                    Store.buyAnimal(players.get(playerCounter));
                 }
                 else if (choice == 2) {
-                    Store.buyFood(players.get(x));
+                    Store.buyFood(players.get(playerCounter));
                 }
                 else if (choice == 3) {
-                    if (players.get(x).getAnimalListSize() == 0) {
+                    if (players.get(playerCounter).getAnimalListSize() == 0) {
                         System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
                         System.out.println("1. Go to store  2. End turn");
                         int goToStore = myScanner.nextInt();
                         if (goToStore == 1) {
-                            Store.buyAnimal(players.get(x));
+                            Store.buyAnimal(players.get(playerCounter));
                         }
                     } else {
-                        players.get(x).feedAnimal();
+                        players.get(playerCounter).feedAnimal();
                     }
 
                 } else if (choice == 4) {
-                    if (players.get(x).getAnimalListSize() < 2) {
+                    if (players.get(playerCounter).getAnimalListSize() < 2) {
                         System.out.println("You don't have enough animals, do you want to go to the store and buy or end your turn?");
                         System.out.println("1. Go to store  2. End turn");
                         int goToStore = myScanner.nextInt();
                         if (goToStore == 1) {
-                            Store.buyAnimal(players.get(x));
+                            Store.buyAnimal(players.get(playerCounter));
                         }
                     } else {
                         System.out.println("Please choose which 2 animals to pair");
-                        players.get(x).printBreed();
+                        players.get(playerCounter).printBreed();
                         System.out.println("Please pick your first animal");
                         int animal1;
                         do {
                             animal1 = myScanner.nextInt();
-                        } while (animal1 <= 0 || animal1 > players.get(x).getAnimalListSize());
+                        } while (animal1 <= 0 || animal1 > players.get(playerCounter).getAnimalListSize());
                         System.out.println("Please pick your second animal");
                         int animal2;
                         do {
                             animal2 = myScanner.nextInt();
-                        } while (animal2 <= 0 || animal2 > players.get(x).getAnimalListSize() || animal2 == animal1);
-                        Animal.pair(players.get(x), players.get(x).getAnimalFromList(animal1 -1), players.get(x).getAnimalFromList(animal2 -1));
+                        } while (animal2 <= 0 || animal2 > players.get(playerCounter).getAnimalListSize() || animal2 == animal1);
+                        Animal.pair(players.get(playerCounter), players.get(playerCounter).getAnimalFromList(animal1 -1), players.get(playerCounter).getAnimalFromList(animal2 -1));
                     }
                 } else if (choice == 5) {
-                    Store.sellAnimal(players.get(x));
+                    Store.sellAnimal(players.get(playerCounter));
                 } else {
                     System.out.println("Invalid choice");
                 }
-                for (int p = 0; p < players.get(x).getAnimalListSize(); p++){
-                    players.get(x).getAnimalFromList(p).depreciateHealth();
+                for (int p = 0; p < players.get(playerCounter).getAnimalListSize(); p++){
+                    players.get(playerCounter).getAnimalFromList(p).depreciateHealth();
                 }
 
-                if (players.get(x).getPlayerMoney() < 100 && players.get(x).getAnimalListSize() == 0) {
-                    System.out.println("Player " + players.get(x).getPlayerName() + " is out of money and animals and is removed from the game");
-                    players.remove(x);
-                    x -= 1;
+                if (players.get(playerCounter).getPlayerMoney() < 100 && players.get(playerCounter).getAnimalListSize() == 0) {
+                    System.out.println("Player " + players.get(playerCounter).getPlayerName() + " is out of money and animals and is removed from the game");
+                    players.remove(playerCounter);
+                    playerCounter -= 1;
                 }
             }
-            if (i == (amountOfRounds-1)){
+            if (roundCounter == (amountOfRounds-1)){
                 System.out.println("That was the last round! All animals will now sell.");
             }
         }

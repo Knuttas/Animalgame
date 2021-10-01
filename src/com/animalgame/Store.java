@@ -26,7 +26,7 @@ public class Store {
         int amountOfAnimals;
         do {
             amountOfAnimals = scan.nextInt();
-        } while (amountOfAnimals > 0);
+        } while (amountOfAnimals < 0);
 
         switch (animalPick) {
             case 1:
