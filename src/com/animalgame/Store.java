@@ -18,10 +18,11 @@ public class Store {
     public static void buyAnimal(Player player) {
         int dogCost = 100, horseCost = 200, lizardCost = 300, cowCost = 400, sheepCost = 500;
         System.out.println("Pick animal: 1.Dog 100$  2.Horse 200$  3.Lizard 300$  4.Cow 400$  5.Sheep 500$");
-        int animalPick;
-        do {
+        int animalPick = scan.nextInt();
+        while (animalPick <= 0 || animalPick > 5) {
+            System.out.println("Please enter a number between 1 and 5.");
             animalPick = scan.nextInt();
-        } while (animalPick <= 0 || animalPick > 5);
+        }
         System.out.println("How many of chosen animal category do you want?");
         int amountOfAnimals;
         do {
@@ -64,10 +65,11 @@ public class Store {
 
         for (int i = 0; i < amountOfAnimals; i++) {
             System.out.println("Pick gender - 1 male, 2 female");
-            int gender;
-            do {
+            int gender = scan.nextInt();
+            while (gender <= 0 || gender > 2){
+                System.out.println("Please enter 1 or 2.");
                 gender = scan.nextInt();
-            } while (gender <= 0 || gender > 2);
+            }
             System.out.println("Enter name");
             String name = scan.next();
             if (animalPick == 1) {
@@ -117,10 +119,11 @@ public class Store {
         } else {
             System.out.println("These are your animals, which one would you like to sell?");
             player.printAnimalList();
-            int whichToSell;
-            do {
+            int whichToSell = scan.nextInt();
+            while (whichToSell <= 0 || whichToSell > player.getAnimalListSize()){
+                System.out.println("Please enter a valid number.");
                 whichToSell = scan.nextInt();
-            } while (whichToSell <= 0 || whichToSell > player.getAnimalListSize());
+            }
 
             switch (player.getAnimalFromList(whichToSell -1).getRace()){
                 case "dog":
@@ -165,10 +168,10 @@ public class Store {
             int buyMoreFood = 0;
             int meatCost = 100, hayCost = 50, saladCost = 30;
             System.out.println("What food do you want? 1.Meat 100$/kg  2.Hay 50$/kg  3.Salad 30$/kg");
-            int foodChosen;
-            do {
-                foodChosen = scan.nextInt();
-            } while (foodChosen != 1 && foodChosen != 2 && foodChosen != 3);
+            int foodChosen = scan.nextInt();
+            while (foodChosen != 1 && foodChosen != 2 && foodChosen != 3){
+                System.out.println("Please choose a number between 1 and 3.");
+            }
             System.out.println("How many kgs?");
             int amount;
             do {
