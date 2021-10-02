@@ -40,15 +40,16 @@ public class Game {
             for (int playerCounter = 0; playerCounter < players.size(); playerCounter++) {
                 System.out.println("Round: " + (roundCounter+1));
                 System.out.println(players.get(playerCounter).getPlayerName() + "'s turn. You have " + players.get(playerCounter).getPlayerMoney() + " dollars available.");
+
+                if (players.get(playerCounter).getAnimalListSize() != 0){
+                    players.get(playerCounter).printAnimalListAndDepreciateHealth();
+                }
                 for (int z = 0; z < players.get(playerCounter).getAnimalListSize(); z++) {
                     if (players.get(playerCounter).getAnimalFromList(z).getHealth() <= 0) {
                         System.out.println(players.get(playerCounter).getAnimalFromList(z).getName() + " has died");
                         players.get(playerCounter).removeAnimalFromList(z);
                         z -= 1;
                     }
-                }
-                if (players.get(playerCounter).getAnimalListSize() != 0){
-                    players.get(playerCounter).printAnimalList();
                 }
                 System.out.println("Meat: " + players.get(playerCounter).getMeatOwned() + " kgs owned.");
                 System.out.println("Hay: " + players.get(playerCounter).getHayOwned() + " kgs owned.");
@@ -103,9 +104,6 @@ public class Game {
                     Store.sellAnimal(players.get(playerCounter));
                 } else {
                     System.out.println("Invalid choice");
-                }
-                for (int p = 0; p < players.get(playerCounter).getAnimalListSize(); p++){
-                    players.get(playerCounter).getAnimalFromList(p).depreciateHealth();
                 }
 
                 if (players.get(playerCounter).getPlayerMoney() < 100 && players.get(playerCounter).getAnimalListSize() == 0) {

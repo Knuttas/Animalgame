@@ -97,6 +97,19 @@ public class Player {
     }
 
     /**
+     * Prints the animal list at the start of a round and depreciates health.
+     */
+
+    public void printAnimalListAndDepreciateHealth(){
+        int counter = 1;
+        for (Animal x : animalsOwned){
+            int healthLost = x.depreciateHealth();
+            System.out.println(counter + ". " + x.getName() + " " + x.getRace() + " " + (x.getGender() == 1 ? "male" : "female") + " " + x.getHealth() + "% health (" + healthLost + "% lost this round.)");
+            counter++;
+        }
+    }
+
+    /**
      * Print breed - used in pairing for example
      */
     public void printBreed(){

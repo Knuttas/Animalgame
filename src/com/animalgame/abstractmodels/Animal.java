@@ -67,11 +67,13 @@ public abstract class Animal {
     /**
      * Reduce health, random 10-30
      */
-    public void depreciateHealth(){
+    public int depreciateHealth(){
+        int healthBefore = this.health;
         this.health -= (int) (Math.random()*(30-10)+10);
         if (this.health < 0){
             this.health = 0;
         }
+        return healthBefore - this.health;
     }
 
     /**
