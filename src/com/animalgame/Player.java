@@ -125,19 +125,21 @@ public class Player {
             }
         } else {
             System.out.println("Please choose which animal to feed");
-            int animalToFeed;
-            do {
+            int animalToFeed = scan.nextInt();
+            while (animalToFeed <= 0 || animalToFeed > animalsOwned.size()){
+                System.out.println("Please choose a valid number.");
                 animalToFeed = scan.nextInt();
-            } while (animalToFeed <= 0 || animalToFeed > animalsOwned.size());
+            };
             System.out.println("Please choose which food:");
             System.out.println("Meat: " + meat.getAmountOwned() + " kgs owned.");
             System.out.println("Hay: " + hay.getAmountOwned() + " kgs owned.");
             System.out.println("Salad: " + salad.getAmountOwned() + " kgs owned.");
             System.out.println("1.Meat 2.Hay 3.Salad");
-            int foodChosen;
-            do {
+            int foodChosen = scan.nextInt();
+            while (foodChosen <= 0 || foodChosen > 3){
+                System.out.println("Please enter a number between 1 and 3.");
                 foodChosen = scan.nextInt();
-            } while (foodChosen <= 0 || foodChosen > 3);
+            }
             if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(meat);
             } else if (foodChosen == 2 && hay.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {

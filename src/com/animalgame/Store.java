@@ -171,6 +171,7 @@ public class Store {
             int foodChosen = scan.nextInt();
             while (foodChosen != 1 && foodChosen != 2 && foodChosen != 3){
                 System.out.println("Please choose a number between 1 and 3.");
+                foodChosen = scan.nextInt();
             }
             System.out.println("How many kgs?");
             int amount;

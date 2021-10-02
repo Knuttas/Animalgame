@@ -86,15 +86,17 @@ public class Game {
                         System.out.println("Please choose which 2 animals to pair");
                         players.get(playerCounter).printBreed();
                         System.out.println("Please pick your first animal");
-                        int animal1;
-                        do {
+                        int animal1 = myScanner.nextInt();
+                        while (animal1 <= 0 || animal1 > players.get(playerCounter).getAnimalListSize()){
+                            System.out.println("Please enter a valid number.");
                             animal1 = myScanner.nextInt();
-                        } while (animal1 <= 0 || animal1 > players.get(playerCounter).getAnimalListSize());
+                        }
                         System.out.println("Please pick your second animal");
-                        int animal2;
-                        do {
+                        int animal2 = myScanner.nextInt();
+                        while (animal2 <= 0 || animal2 > players.get(playerCounter).getAnimalListSize() || animal2 == animal1) {
+                            System.out.println("Please enter a valid number.");
                             animal2 = myScanner.nextInt();
-                        } while (animal2 <= 0 || animal2 > players.get(playerCounter).getAnimalListSize() || animal2 == animal1);
+                        }
                         Animal.pair(players.get(playerCounter), players.get(playerCounter).getAnimalFromList(animal1 -1), players.get(playerCounter).getAnimalFromList(animal2 -1));
                     }
                 } else if (choice == 5) {
