@@ -15,13 +15,13 @@ public class Game {
     public Game() {
         Scanner myScanner = new Scanner(System.in);
         players = new ArrayList<>();
-
-        System.out.println("Enter amount of rounds 5-30");
-        int amountOfRounds = myScanner.nextInt();
-        while (amountOfRounds < 5 || amountOfRounds > 30) {
-            System.out.println("Please enter a number between 5-30");
-            amountOfRounds = myScanner.nextInt();
-        }
+        int amountOfRounds = 2;
+//        System.out.println("Enter amount of rounds 5-30");
+//        int amountOfRounds = myScanner.nextInt();
+//        while (amountOfRounds < 5 || amountOfRounds > 30) {
+//            System.out.println("Please enter a number between 5-30");
+//            amountOfRounds = myScanner.nextInt();
+//        }
 
         System.out.println("Enter amount of players 1-4");
         int amountOfPlayers = myScanner.nextInt();
@@ -109,9 +109,11 @@ public class Game {
                     System.out.println("Player " + players.get(playerCounter).getPlayerName() + " is out of money and animals and is removed from the game");
                     players.remove(playerCounter);
                     playerCounter -= 1;
+                    System.out.println("-".repeat(50));
                 }
+                System.out.println("-".repeat(50));
             }
-            if (roundCounter == (amountOfRounds-1)){
+            if (roundCounter == (amountOfRounds-1) && players.size() != 0){
                 System.out.println("That was the last round! All animals will now sell.");
             }
         }
@@ -140,17 +142,33 @@ public class Game {
             }
             System.out.println(players.get(k).getPlayerName() + "'s total amount of money is " + players.get(k).getPlayerMoney() + "$");
         }
-        if (players.size() > 1) {
-            int winner = 0;
-            String nameWinner = "";
-            for (int q = 0; q < players.size(); q++) {
-                if (winner < players.get(q).getPlayerMoney()){
-                    winner = players.get(q).getPlayerMoney();
-                    nameWinner = players.get(q).getPlayerName();
+        System.out.println("");
+        ArrayList<Player> winnerList = new ArrayList<>();
+        winnerList.add(new Player("winnerCheck", 0));
+        for (Player player : players){
+            if (winnerList.get(0).getPlayerMoney() < player.getPlayerMoney()){
+                winnerList.remove(0);
+                winnerList.add(player);
+            }
+            else if (winnerList.get(0).getPlayerMoney() == player.getPlayerMoney()){
+                winnerList.add(player);
+            }
+        }
+        if (players.isEmpty()) {
+            System.out.println("Everybody is out of the game!");
+        }
+        else if (players.size() > 0){
+             if (winnerList.size() == 1) {
+                System.out.println("The winner is: " + winnerList.get(0).getPlayerName() + " with " + winnerList.get(0).getPlayerMoney() + "$!");
+            }
+             else if (winnerList.size() > 1) {
+                System.out.println("There was a tie!");
+                for (Player player : winnerList) {
+                    System.out.println(player.getPlayerName() + " with " + player.getPlayerMoney() + "$!");
                 }
             }
-            System.out.println("The winner is " + nameWinner + " with " + winner + "$!");
         }
+        System.out.println("");
         System.out.println("Game over! Thanks for playing.");
     }
 }
