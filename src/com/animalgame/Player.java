@@ -142,7 +142,7 @@ public class Player {
             while (animalToFeed <= 0 || animalToFeed > animalsOwned.size()){
                 System.out.println("Please choose a valid number.");
                 animalToFeed = scan.nextInt();
-            };
+            }
             System.out.println("Please choose which food:");
             System.out.println("Meat: " + meat.getAmountOwned() + " kgs owned.");
             System.out.println("Hay: " + hay.getAmountOwned() + " kgs owned.");
