@@ -98,8 +98,8 @@ public class Store {
         System.out.println("Do you want to buy more animals?");
         System.out.println("1. Buy more animals  2. End turn");
         int buyMore = scan.nextInt();
-        while (buyMore < 1 || buyMore > 3){
-            System.out.println("Invalid choice, please enter a number between 1 and 3");
+        while (buyMore < 1 || buyMore > 2){
+            System.out.println("Invalid choice, please enter 1 or 2");
             buyMore = scan.nextInt();
         }
         if (buyMore == 1){
@@ -153,15 +153,20 @@ public class Store {
                     break;
             }
             player.removeAnimalFromList(whichToSell -1);
-            System.out.println("Do you wish to sell another animal?");
-            System.out.println("1. Sell animal  2. End turn");
-            int sellAgain = scan.nextInt();
-            while (sellAgain < 1 || sellAgain > 3){
-                System.out.println("Invalid choice, please enter a number between 1 and 3");
-                sellAgain = scan.nextInt();
+            if (player.getAnimalListSize() == 0){
+                System.out.println("You have no more animals, ending turn");
             }
-            if (sellAgain == 1) {
-                sellAnimal(player);
+            else if (player.getAnimalListSize() > 0) {
+                System.out.println("Do you wish to sell another animal?");
+                System.out.println("1. Sell animal  2. End turn");
+                int sellAgain = scan.nextInt();
+                while (sellAgain < 1 || sellAgain > 2) {
+                    System.out.println("Invalid choice, please enter 1 or 2");
+                    sellAgain = scan.nextInt();
+                }
+                if (sellAgain == 1) {
+                    sellAnimal(player);
+                }
             }
         }
     }
@@ -222,15 +227,15 @@ public class Store {
                 System.out.println("Do you want to buy more food?");
                 System.out.println("1. Buy more food  2. End turn");
                 buyMoreFood = scan.nextInt();
-                while (buyMoreFood < 1 || buyMoreFood > 3){
-                    System.out.println("Invalid choice, please enter a number between 1 and 3");
+                while (buyMoreFood < 1 || buyMoreFood > 2){
+                    System.out.println("Invalid choice, please enter 1 or 2");
                     buyMoreFood = scan.nextInt();
                 }
                 if (buyMoreFood == 1){
                     buyFood(player);
                 }
             }
-            else {
+            else if (player.getPlayerMoney() < 30) {
                 System.out.println("You are out of money, ending turn");
             }
         }

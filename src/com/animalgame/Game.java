@@ -15,13 +15,12 @@ public class Game {
     public Game() {
         Scanner myScanner = new Scanner(System.in);
         players = new ArrayList<>();
-        int amountOfRounds = 2;
-//        System.out.println("Enter amount of rounds 5-30");
-//        int amountOfRounds = myScanner.nextInt();
-//        while (amountOfRounds < 5 || amountOfRounds > 30) {
-//            System.out.println("Please enter a number between 5-30");
-//            amountOfRounds = myScanner.nextInt();
-//        }
+        System.out.println("Enter amount of rounds 5-30");
+        int amountOfRounds = myScanner.nextInt();
+        while (amountOfRounds < 5 || amountOfRounds > 30) {
+            System.out.println("Please enter a number between 5-30");
+            amountOfRounds = myScanner.nextInt();
+        }
 
         System.out.println("Enter amount of players 1-4");
         int amountOfPlayers = myScanner.nextInt();
