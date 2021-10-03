@@ -15,6 +15,7 @@ public class Game {
     public Game() {
         Scanner myScanner = new Scanner(System.in);
         players = new ArrayList<>();
+
         System.out.println("Enter amount of rounds 5-30");
         int amountOfRounds = myScanner.nextInt();
         while (amountOfRounds < 5 || amountOfRounds > 30) {
@@ -146,7 +147,10 @@ public class Game {
         winnerList.add(new Player("winnerCheck", 0));
         for (Player player : players){
             if (winnerList.get(0).getPlayerMoney() < player.getPlayerMoney()){
-                winnerList.remove(0);
+                for (int i = 0; i < winnerList.size(); i++){
+                    winnerList.remove(i);
+                    i -= 1;
+                }
                 winnerList.add(player);
             }
             else if (winnerList.get(0).getPlayerMoney() == player.getPlayerMoney()){
