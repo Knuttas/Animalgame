@@ -3,9 +3,8 @@ package com.animalgame.food;
 import com.animalgame.abstractmodels.Food;
 
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.food.Hay class extends com.animalgame.abstractmodels.Food
+ * @author tvoul, knuttas
+ * Hay extends and implents the abstract class Food
  */
 public class Hay extends Food {
     private String foodName = "hay";

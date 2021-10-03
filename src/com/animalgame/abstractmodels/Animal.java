@@ -6,9 +6,8 @@ import com.animalgame.animals.*;
 import java.util.Objects;
 import java.util.Scanner;
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.abstractmodels.Animal abstract class
+ * @author tvoul, knuttas
+ * Abstract class that provides the base for values and methods for the sub-classes of Animals
  */
 
 public abstract class Animal {

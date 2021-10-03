@@ -2,7 +2,7 @@ package com.animalgame;
 
 /**
  * @author knuttas, tvoul
- * com.animalgame.Main class
+ * Create a new Game
  */
 public class Main {
     public static void main(String[] args) {

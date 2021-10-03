@@ -4,9 +4,8 @@ import com.animalgame.abstractmodels.Animal;
 import com.animalgame.abstractmodels.Food;
 
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.animals.Dog class extends com.animalgame.abstractmodels.Animal
+ * @author tvoul, knuttas
+ * Dog extends and implements abstract class Animal
  */
 public class Dog extends Animal {
     public Dog(String name, String race, int gender, int health) {

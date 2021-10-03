@@ -5,9 +5,8 @@ import com.animalgame.abstractmodels.Animal;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.Game class
+ * @author tvoul, knuttas
+ * Runs the game by asking for amount of rounds and players, then loops through and offers game choices
  */
 
 public class Game {
@@ -154,5 +153,5 @@ public class Game {
         }
         System.out.println("Game over! Thanks for playing.");
     }
-    }
+}
 

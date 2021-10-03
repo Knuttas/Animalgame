@@ -4,9 +4,8 @@ import com.animalgame.abstractmodels.Animal;
 import com.animalgame.abstractmodels.Food;
 
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.animals.Sheep class extends com.animalgame.abstractmodels.Animal
+ * @author tvoul, knuttas
+ * Lizard extends and implements abstract class Animal
  */
 public class Sheep extends Animal {
     public Sheep(String name, String race, int gender, int health) {

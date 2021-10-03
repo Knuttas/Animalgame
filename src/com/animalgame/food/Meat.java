@@ -3,16 +3,15 @@ package com.animalgame.food;
 import com.animalgame.abstractmodels.Food;
 
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.Player class extends com.animalgame.abstractmodels.Food
+ * @author tvoul, knuttas
+ * Meat extends and implents the abstract class Food
  */
 
 public class Meat extends Food {
     private String foodName = "meat";
 
     /**
-     * Adjust meat amount owned
+     * Set meat amount owned
      * @param amount
      */
     public void setAmountOwned(int amount){

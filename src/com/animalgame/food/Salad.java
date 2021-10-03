@@ -3,9 +3,8 @@ package com.animalgame.food;
 import com.animalgame.abstractmodels.Food;
 
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.food.Salad class extends com.animalgame.abstractmodels.Food
+ * @author tvoul, knuttas
+ * Salad extends and implents the abstract class Food
  */
 
 public class Salad extends Food {

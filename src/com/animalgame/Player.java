@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author tvoul
- * @author knuttas
- * com.animalgame.Player class
+ * @author tvoul, knuttas
+ * Stores player information (name, money, animals, food) and has methods to return and adjust these values/list
  */
 
 public class Player {
