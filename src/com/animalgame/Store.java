@@ -24,10 +24,11 @@ public class Store {
             animalPick = scan.nextInt();
         }
         System.out.println("How many of chosen animal category do you want?");
-        int amountOfAnimals;
-        do {
+        int amountOfAnimals = scan.nextInt();
+        while (amountOfAnimals < 1){
+            System.out.println("Please input a number larger than 0");
             amountOfAnimals = scan.nextInt();
-        } while (amountOfAnimals < 0);
+        }
 
         switch (animalPick) {
             case 1:
@@ -174,10 +175,11 @@ public class Store {
                 foodChosen = scan.nextInt();
             }
             System.out.println("How many kgs?");
-            int amount;
-            do {
+            int amount = scan.nextInt();
+            while (amount < 1){
+                System.out.println("Please enter a number larger than 1");
                 amount = scan.nextInt();
-            } while (amount < 0);
+            }
 
             switch (foodChosen) {
                 case 1:
