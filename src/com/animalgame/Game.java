@@ -105,10 +105,10 @@ public class Game {
                 }
 
                 if (players.get(playerCounter).getPlayerMoney() < 100 && players.get(playerCounter).getAnimalListSize() == 0) {
+                    System.out.println("-".repeat(50));
                     System.out.println("Player " + players.get(playerCounter).getPlayerName() + " is out of money and animals and is removed from the game");
                     players.remove(playerCounter);
                     playerCounter -= 1;
-                    System.out.println("-".repeat(50));
                 }
                 System.out.println("-".repeat(50));
             }
@@ -167,7 +167,6 @@ public class Game {
                 }
             }
         }
-        System.out.println("");
         System.out.println("Game over! Thanks for playing.");
     }
 }
