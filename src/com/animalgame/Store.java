@@ -163,9 +163,6 @@ public class Store {
      * @param player receive player to adjust food owned and money
      */
     public static void buyFood(Player player){
-        if (player.getPlayerMoney() < 30) {
-            System.out.println("You can't afford any food. Ending turn.");
-        } else {
             int buyMoreFood = 0;
             int meatCost = 100, hayCost = 50, saladCost = 30;
             System.out.println("What food do you want? 1.Meat 100$/kg  2.Hay 50$/kg  3.Salad 30$/kg");
@@ -213,12 +210,17 @@ public class Store {
                 player.setSaladOwned(amount);
                 player.setPlayerMoney(-amount*saladCost);
             }
-            System.out.println("Do you want to buy more food?");
-            System.out.println("1. Buy more food  2. End turn");
-            buyMoreFood = scan.nextInt();
-            if (buyMoreFood == 1){
-                buyFood(player);
+            if (player.getPlayerMoney() > 30){
+                System.out.println("Do you want to buy more food?");
+                System.out.println("1. Buy more food  2. End turn");
+                buyMoreFood = scan.nextInt();
+                if (buyMoreFood == 1){
+                    buyFood(player);
+                }
+            }
+            else {
+                System.out.println("You are out of money, ending turn");
             }
         }
     }
-}
+
