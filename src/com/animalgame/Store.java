@@ -180,7 +180,7 @@ public class Store {
             int meatCost = 100, hayCost = 50, saladCost = 30;
             System.out.println("What food do you want? 1.Meat 100$/kg  2.Hay 50$/kg  3.Salad 30$/kg");
             int foodChosen = scan.nextInt();
-            while (foodChosen != 1 && foodChosen != 2 && foodChosen != 3){
+            while (foodChosen <1 || foodChosen > 3){
                 System.out.println("Please choose a number between 1 and 3.");
                 foodChosen = scan.nextInt();
             }
@@ -195,18 +195,21 @@ public class Store {
                 case 1:
                     if (meatCost * amount > player.getPlayerMoney()) {
                         System.out.println("You can't afford that, try again");
+                        amount = 0;
                         buyFood(player);
                     }
                     break;
                 case 2:
                     if (hayCost * amount > player.getPlayerMoney()) {
                         System.out.println("You can't afford that, try again");
+                        amount = 0;
                         buyFood(player);
                     }
                     break;
                 case 3:
                     if (saladCost * amount > player.getPlayerMoney()) {
                         System.out.println("You can't afford that, try again");
+                        amount = 0;
                         buyFood(player);
                     }
                     break;
@@ -223,6 +226,7 @@ public class Store {
                 player.setSaladOwned(amount);
                 player.setPlayerMoney(-amount*saladCost);
             }
+
             if (player.getPlayerMoney() > 30){
                 System.out.println("Do you want to buy more food?");
                 System.out.println("1. Buy more food  2. End turn");

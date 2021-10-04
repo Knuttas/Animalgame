@@ -56,6 +56,10 @@ public class Game {
                 System.out.println("Please choose one of the following: ");
                 System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
                 int choice = myScanner.nextInt();
+                while (choice < 1 || choice > 5){
+                    System.out.println("Invalid choice, please enter a number between 1 and 5");
+                    choice = myScanner.nextInt();
+                }
                 if (choice == 1){
                     Store.buyAnimal(players.get(playerCounter));
                 }
