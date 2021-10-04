@@ -61,10 +61,20 @@ public class Game {
                     choice = myScanner.nextInt();
                 }
                 if (choice == 1){
-                    Store.buyAnimal(players.get(playerCounter));
+                    if (players.get(playerCounter).getPlayerMoney() > 100) {
+                        Store.buyAnimal(players.get(playerCounter));
+                    }
+                    else if (players.get(playerCounter).getPlayerMoney() < 100){
+                        System.out.println("You cannot afford that, ending turn");
+                    }
                 }
                 else if (choice == 2) {
-                    Store.buyFood(players.get(playerCounter));
+                    if (players.get(playerCounter).getPlayerMoney() > 30) {
+                        Store.buyFood(players.get(playerCounter));
+                    }
+                    else if (players.get(playerCounter).getPlayerMoney() < 30){
+                        System.out.println("You cannot afford that, ending turn");
+                    }
                 }
                 else if (choice == 3) {
                     if (players.get(playerCounter).getAnimalListSize() == 0) {
