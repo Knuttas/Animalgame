@@ -97,6 +97,7 @@ public class Store {
                 player.setPlayerMoney(-sheepCost);
             }
         }
+        System.out.println("Money left: " + player.getPlayerMoney());
         System.out.println("Do you want to buy more animals?");
         System.out.println("1. Buy more animals  2. End turn");
         int buyMore = scan.nextInt();
@@ -136,22 +137,27 @@ public class Store {
                 case "dog":
                     player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * dogValue / 100);
                     System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold - gained " + player.getAnimalFromList(whichToSell - 1).getHealth() * dogValue / 100 + "$");
+                    System.out.println("New amount of money: " + player.getPlayerMoney());
                     break;
                 case "horse":
                     player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * horseValue / 100);
                     System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold - gained " + player.getAnimalFromList(whichToSell - 1).getHealth() * horseValue / 100 + "$");
+                    System.out.println("New amount of money: " + player.getPlayerMoney());
                     break;
                 case "lizard":
                     player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * lizardValue / 100);
                     System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold - gained " + player.getAnimalFromList(whichToSell - 1).getHealth() * lizardValue / 100 + "$");
+                    System.out.println("New amount of money: " + player.getPlayerMoney());
                     break;
                 case "cow":
                     player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * cowValue / 100);
                     System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold - gained " + player.getAnimalFromList(whichToSell - 1).getHealth() * cowValue / 100 + "$");
+                    System.out.println("New amount of money: " + player.getPlayerMoney());
                     break;
                 case "sheep":
                     player.setPlayerMoney(player.getAnimalFromList(whichToSell - 1).getHealth() * sheepValue / 100);
                     System.out.println(player.getAnimalFromList(whichToSell - 1).getName() + " sold - gained " + player.getAnimalFromList(whichToSell - 1).getHealth() * sheepValue / 100 + "$");
+                    System.out.println("New amount of money: " + player.getPlayerMoney());
                     break;
             }
             player.removeAnimalFromList(whichToSell -1);
@@ -191,32 +197,50 @@ public class Store {
                 System.out.println("Please enter a number larger than 1");
                 amount = scan.nextInt();
             }
-            if (foodChosen == 1){
-                while (meatCost * amount > player.getPlayerMoney()){
-                    System.out.println("You cannot afford that, try again");
-                    System.out.print("Enter a new amount for kgs of meat: ");
-                    amount = scan.nextInt();
+            if (foodChosen == 1) {
+                if (player.getPlayerMoney() > 99) {
+                    while (meatCost * amount > player.getPlayerMoney()) {
+                        System.out.println("You cannot afford that, try again");
+                        System.out.print("Enter a new amount for kgs of meat: ");
+                        amount = scan.nextInt();
+                    }
+                    player.setMeatOwned(amount);
+                    player.setPlayerMoney(-amount * meatCost);
+                    System.out.println("Money left: " + player.getPlayerMoney());
                 }
-                player.setMeatOwned(amount);
-                player.setPlayerMoney(-amount * meatCost);
+                else if (player.getPlayerMoney() < 100){
+                    System.out.println("You cannot afford that.");
+                }
             }
-            else if (foodChosen == 2){
-                while (hayCost * amount > player.getPlayerMoney()){
-                    System.out.println("You cannot afford that, try again");
-                    System.out.print("Enter a new amount for kgs of hay: ");
-                    amount = scan.nextInt();
+            else if (foodChosen == 2) {
+                if (player.getPlayerMoney() > 49) {
+                    while (hayCost * amount > player.getPlayerMoney()) {
+                        System.out.println("You cannot afford that, try again");
+                        System.out.print("Enter a new amount for kgs of hay: ");
+                        amount = scan.nextInt();
+                    }
+                    player.setHayOwned(amount);
+                    player.setPlayerMoney(-amount * hayCost);
+                    System.out.println("Money left: " + player.getPlayerMoney());
                 }
-                player.setHayOwned(amount);
-                player.setPlayerMoney(-amount * hayCost);
+                else if (player.getPlayerMoney() < 50){
+                    System.out.println("You cannot afford that.");
+                }
             }
-            else if (foodChosen == 3){
-                while (saladCost * amount > player.getPlayerMoney()){
-                    System.out.println("You cannot afford that, try again");
-                    System.out.print("Enter a new amount for kgs of salad: ");
-                    amount = scan.nextInt();
+            else if (foodChosen == 3) {
+                if (player.getPlayerMoney() > 29) {
+                    while (saladCost * amount > player.getPlayerMoney()) {
+                        System.out.println("You cannot afford that, try again");
+                        System.out.print("Enter a new amount for kgs of salad: ");
+                        amount = scan.nextInt();
+                    }
+                    player.setSaladOwned(amount);
+                    player.setPlayerMoney(-amount * saladCost);
+                    System.out.println("Money left: " + player.getPlayerMoney());
                 }
-                player.setSaladOwned(amount);
-                player.setPlayerMoney(-amount * saladCost);
+                else if (player.getPlayerMoney() < 30){
+                    System.out.println("You cannot afford that.");
+                }
             }
 
             if (player.getPlayerMoney() > 30){
