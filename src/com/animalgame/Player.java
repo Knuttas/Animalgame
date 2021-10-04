@@ -138,7 +138,7 @@ public class Player {
         } else {
             System.out.println("Please choose which animal to feed");
             int animalToFeed = scan.nextInt();
-            while (animalToFeed <= 0 || animalToFeed > animalsOwned.size()){
+            while (animalToFeed <= 0 || animalToFeed > animalsOwned.size()) {
                 System.out.println("Please choose a valid number.");
                 animalToFeed = scan.nextInt();
             }
@@ -148,29 +148,34 @@ public class Player {
             System.out.println("Salad: " + salad.getAmountOwned() + " kgs owned.");
             System.out.println("1.Meat 2.Hay 3.Salad");
             int foodChosen = scan.nextInt();
-            while (foodChosen <= 0 || foodChosen > 3){
+            while (foodChosen <= 0 || foodChosen > 3) {
                 System.out.println("Please enter a number between 1 and 3.");
                 foodChosen = scan.nextInt();
             }
-            if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
+            if (foodChosen == 1 && meat.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth() < 100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(meat);
-            } else if (foodChosen == 2 && hay.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
+            } else if (foodChosen == 2 && hay.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth() < 100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(hay);
-            } else if (foodChosen == 3 && salad.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth()<100) {
+            } else if (foodChosen == 3 && salad.getAmountOwned() > 0 && animalsOwned.get(animalToFeed - 1).getHealth() < 100) {
                 animalsOwned.get(animalToFeed - 1).feedHealth(salad);
             } else {
                 System.out.println("Invalid choice, not enough amount of chosen food or animal health already 100%.");
             }
 
-            System.out.println("Do you want to feed your animal again or feed another animal?");
-            System.out.println("1. Feed again  2. End turn");
-            int feedAgain = scan.nextInt();
-            while (feedAgain < 1 || feedAgain > 2){
-                System.out.println("Invalid choice, please enter 1 or 2");
-                feedAgain = scan.nextInt();
+            if (hay.getAmountOwned() >= 1 || salad.getAmountOwned() >= 1 || meat.getAmountOwned() >= 1) {
+                System.out.println("Do you want to feed your animal again or feed another animal?");
+                System.out.println("1. Feed again  2. End turn");
+                int feedAgain = scan.nextInt();
+                while (feedAgain < 1 || feedAgain > 2) {
+                    System.out.println("Invalid choice, please enter 1 or 2");
+                    feedAgain = scan.nextInt();
+                }
+                if (feedAgain == 1) {
+                    feedAnimal();
+                }
             }
-            if (feedAgain == 1) {
-                feedAnimal();
+            else if (hay.getAmountOwned() < 1 && salad.getAmountOwned() < 1 && meat.getAmountOwned() < 1){
+                System.out.println("You are out of food, ending turn");
             }
         }
     }
