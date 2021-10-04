@@ -176,7 +176,6 @@ public class Store {
      * @param player receive player to adjust food owned and money
      */
     public static void buyFood(Player player){
-            int buyMoreFood = 0;
             int meatCost = 100, hayCost = 50, saladCost = 30;
             System.out.println("What food do you want? 1.Meat 100$/kg  2.Hay 50$/kg  3.Salad 30$/kg");
             int foodChosen = scan.nextInt();
@@ -190,57 +189,49 @@ public class Store {
                 System.out.println("Please enter a number larger than 1");
                 amount = scan.nextInt();
             }
-
-            switch (foodChosen) {
-                case 1:
-                    if (meatCost * amount > player.getPlayerMoney()) {
-                        System.out.println("You can't afford that, try again");
-                        amount = 0;
-                        buyFood(player);
-                    }
-                    break;
-                case 2:
-                    if (hayCost * amount > player.getPlayerMoney()) {
-                        System.out.println("You can't afford that, try again");
-                        amount = 0;
-                        buyFood(player);
-                    }
-                    break;
-                case 3:
-                    if (saladCost * amount > player.getPlayerMoney()) {
-                        System.out.println("You can't afford that, try again");
-                        amount = 0;
-                        buyFood(player);
-                    }
-                    break;
-            }
             if (foodChosen == 1){
+                while (meatCost * amount > player.getPlayerMoney()){
+                    System.out.println("You cannot afford that, try again");
+                    System.out.println("Enter a new amount for kgs of meat");
+                    amount = scan.nextInt();
+                }
                 player.setMeatOwned(amount);
-                player.setPlayerMoney(-amount*meatCost);
+                player.setPlayerMoney(-amount * meatCost);
+
             }
             else if (foodChosen == 2){
+                while (hayCost * amount > player.getPlayerMoney()){
+                    System.out.println("You cannot afford that, try again");
+                    System.out.println("Enter a new amount for kgs of hay");
+                    amount = scan.nextInt();
+                }
                 player.setHayOwned(amount);
-                player.setPlayerMoney(-amount*hayCost);
+                player.setPlayerMoney(-amount * hayCost);
             }
             else if (foodChosen == 3){
+                while (saladCost * amount > player.getPlayerMoney()){
+                    System.out.println("You cannot afford that, try again");
+                    System.out.println("Enter a new amount for kgs of hay");
+                    amount = scan.nextInt();
+                }
                 player.setSaladOwned(amount);
-                player.setPlayerMoney(-amount*saladCost);
+                player.setPlayerMoney(-amount * saladCost);
             }
 
             if (player.getPlayerMoney() > 30){
                 System.out.println("Do you want to buy more food?");
                 System.out.println("1. Buy more food  2. End turn");
-                buyMoreFood = scan.nextInt();
-                while (buyMoreFood < 1 || buyMoreFood > 2){
+                int buyAgain = scan.nextInt();
+                while (buyAgain < 1 || buyAgain > 2){
                     System.out.println("Invalid choice, please enter 1 or 2");
-                    buyMoreFood = scan.nextInt();
+                    buyAgain = scan.nextInt();
                 }
-                if (buyMoreFood == 1){
+                if (buyAgain == 1){
                     buyFood(player);
                 }
             }
-            else if (player.getPlayerMoney() < 30) {
-                System.out.println("You are out of money, ending turn");
+            else if (player.getPlayerMoney() < 30){
+                System.out.println("You cannot afford more food, ending turn");
             }
         }
     }
