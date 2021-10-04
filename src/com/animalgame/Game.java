@@ -129,6 +129,7 @@ public class Game {
             }
             if (roundCounter == (amountOfRounds-1) && players.size() != 0){
                 System.out.println("That was the last round! All animals will now sell.");
+                System.out.println("-".repeat(50));
             }
         }
         for (int k = 0; k < players.size(); k++) {
@@ -185,6 +186,7 @@ public class Game {
                 }
             }
         }
+        System.out.println("-".repeat(50));
         System.out.println("Game over! Thanks for playing.");
     }
 }
