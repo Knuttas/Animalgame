@@ -103,7 +103,7 @@ public class Player {
         int counter = 1;
         for (Animal x : animalsOwned){
             int healthLost = x.depreciateHealth();
-            System.out.println(counter + ". " + x.getName() + " " + x.getRace() + " " + (x.getGender() == 1 ? "male" : "female") + " " + x.getHealth() + "% health (" + healthLost + "% lost this round.)");
+            System.out.println(counter + ". " + x.getName() + " - "+ (x.getGender() == 1 ? "male" : "female") + " " + x.getRace() + " " + x.getHealth() + "% health (" + healthLost + "% lost since last round)");
             counter++;
         }
     }
