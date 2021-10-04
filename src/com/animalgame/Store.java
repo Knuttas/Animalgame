@@ -29,40 +29,42 @@ public class Store {
             System.out.println("Please input a number larger than 0");
             amountOfAnimals = scan.nextInt();
         }
-
-        switch (animalPick) {
-            case 1:
-                if (dogCost * amountOfAnimals > player.getPlayerMoney()){
-                    System.out.println("You can't afford that, try again");
-                    buyAnimal(player);
-                }
-                break;
-            case 2:
-                if (horseCost * amountOfAnimals > player.getPlayerMoney()){
-                    System.out.println("You can't afford that, try again");
-                    buyAnimal(player);
-                }
-                break;
-            case 3:
-                if (lizardCost * amountOfAnimals > player.getPlayerMoney()){
-                    System.out.println("You can't afford that, try again");
-                    buyAnimal(player);
-                }
-                break;
-            case 4:
-                if (cowCost * amountOfAnimals > player.getPlayerMoney()){
-                    System.out.println("You can't afford that, try again");
-                    buyAnimal(player);
-                }
-                break;
-            case 5:
-                if (sheepCost * amountOfAnimals > player.getPlayerMoney()){
-                    System.out.println("You can't afford that, try again");
-                    buyAnimal(player);
-                }
-                break;
-
+        if (animalPick == 1) {
+            while (amountOfAnimals * dogCost > player.getPlayerMoney()){
+                System.out.println("You cannot afford that!");
+                System.out.print("Enter new amount of dogs: ");
+                amountOfAnimals = scan.nextInt();
+            }
         }
+        else if (animalPick == 2){
+            while (amountOfAnimals * horseCost > player.getPlayerMoney()){
+                System.out.println("You cannot afford that!");
+                System.out.print("Enter new amount of horses: ");
+                amountOfAnimals = scan.nextInt();
+            }
+        }
+        else if (animalPick == 3){
+            while (amountOfAnimals * lizardCost > player.getPlayerMoney()){
+                System.out.println("You cannot afford that!");
+                System.out.print("Enter new amount of lizards: ");
+                amountOfAnimals = scan.nextInt();
+            }
+        }
+        else if (animalPick == 4){
+            while (amountOfAnimals * cowCost > player.getPlayerMoney()){
+                System.out.println("You cannot afford that!");
+                System.out.print("Enter new amount of cows: ");
+                amountOfAnimals = scan.nextInt();
+            }
+        }
+        else if (animalPick == 5){
+            while (amountOfAnimals * sheepCost > player.getPlayerMoney()){
+                System.out.println("You cannot afford that!");
+                System.out.print("Enter new amount of sheep: ");
+                amountOfAnimals = scan.nextInt();
+            }
+        }
+
 
         for (int i = 0; i < amountOfAnimals; i++) {
             System.out.println("Pick gender - 1 male, 2 female");
@@ -192,17 +194,16 @@ public class Store {
             if (foodChosen == 1){
                 while (meatCost * amount > player.getPlayerMoney()){
                     System.out.println("You cannot afford that, try again");
-                    System.out.println("Enter a new amount for kgs of meat");
+                    System.out.print("Enter a new amount for kgs of meat: ");
                     amount = scan.nextInt();
                 }
                 player.setMeatOwned(amount);
                 player.setPlayerMoney(-amount * meatCost);
-
             }
             else if (foodChosen == 2){
                 while (hayCost * amount > player.getPlayerMoney()){
                     System.out.println("You cannot afford that, try again");
-                    System.out.println("Enter a new amount for kgs of hay");
+                    System.out.print("Enter a new amount for kgs of hay: ");
                     amount = scan.nextInt();
                 }
                 player.setHayOwned(amount);
@@ -211,7 +212,7 @@ public class Store {
             else if (foodChosen == 3){
                 while (saladCost * amount > player.getPlayerMoney()){
                     System.out.println("You cannot afford that, try again");
-                    System.out.println("Enter a new amount for kgs of hay");
+                    System.out.print("Enter a new amount for kgs of salad: ");
                     amount = scan.nextInt();
                 }
                 player.setSaladOwned(amount);
