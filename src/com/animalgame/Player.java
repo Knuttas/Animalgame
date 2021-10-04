@@ -161,16 +161,17 @@ public class Player {
             } else {
                 System.out.println("Invalid choice, not enough amount of chosen food or animal health already 100%.");
             }
-        }
-        System.out.println("Do you want to feed your animal again or feed another animal?");
-        System.out.println("1. Feed again  2. End turn");
-        int feedAgain = scan.nextInt();
-        while (feedAgain < 1 || feedAgain > 2){
-            System.out.println("Invalid choice, please enter 1 or 2");
-            feedAgain = scan.nextInt();
-        }
-        if (feedAgain == 1) {
-            feedAnimal();
+
+            System.out.println("Do you want to feed your animal again or feed another animal?");
+            System.out.println("1. Feed again  2. End turn");
+            int feedAgain = scan.nextInt();
+            while (feedAgain < 1 || feedAgain > 2){
+                System.out.println("Invalid choice, please enter 1 or 2");
+                feedAgain = scan.nextInt();
+            }
+            if (feedAgain == 1) {
+                feedAnimal();
+            }
         }
     }
 
