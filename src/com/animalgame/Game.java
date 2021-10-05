@@ -90,11 +90,20 @@ public class Game {
 
                 } else if (choice == 4) {
                     if (players.get(playerCounter).getAnimalListSize() < 2) {
-                        System.out.println("You don't have enough animals, do you want to go to the store and buy or end your turn?");
-                        System.out.println("1. Go to store  2. End turn");
-                        int goToStore = myScanner.nextInt();
-                        if (goToStore == 1) {
-                            Store.buyAnimal(players.get(playerCounter));
+                        if (players.get(playerCounter).getPlayerMoney() > 99) {
+                            System.out.println("You don't have enough animals, do you want to go to the store and buy or end your turn?");
+                            System.out.println("1. Go to store  2. End turn");
+                            int goToStore = myScanner.nextInt();
+                            while (goToStore < 1 || goToStore > 2) {
+                                System.out.println("Invalid choice, please enter 1 or 2");
+                                goToStore = myScanner.nextInt();
+                            }
+                            if (goToStore == 1) {
+                                Store.buyAnimal(players.get(playerCounter));
+                            }
+                        }
+                        else {
+                            System.out.println("You don't have enough animals, nor can afford new ones. Ending turn");
                         }
                     } else {
                         System.out.println("Please choose which 2 animals to pair");
