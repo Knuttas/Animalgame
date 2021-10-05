@@ -53,79 +53,79 @@ public class Game {
                 System.out.println("Meat: " + players.get(playerCounter).getMeatOwned() + " kgs owned.");
                 System.out.println("Hay: " + players.get(playerCounter).getHayOwned() + " kgs owned.");
                 System.out.println("Salad: " + players.get(playerCounter).getSaladOwned() + " kgs owned.");
-                System.out.println("Please choose one of the following: ");
-                System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
-                int choice = myScanner.nextInt();
-                while (choice < 1 || choice > 5){
-                    System.out.println("Invalid choice, please enter a number between 1 and 5");
-                    choice = myScanner.nextInt();
+                if (players.get(playerCounter).getPlayerMoney() < 100 && players.get(playerCounter).getAnimalListSize() == 0){
+                    System.out.println("You have animals no left, or enough money to buy any.");
                 }
-                if (choice == 1){
-                    if (players.get(playerCounter).getPlayerMoney() > 100) {
-                        Store.buyAnimal(players.get(playerCounter));
+                else {
+                    System.out.println("Please choose one of the following: ");
+                    System.out.println("1. Buy animal  2. Buy food  3. Feed animals  4. Breed animals  5. Sell animals");
+                    int choice = myScanner.nextInt();
+                    while (choice < 1 || choice > 5) {
+                        System.out.println("Invalid choice, please enter a number between 1 and 5");
+                        choice = myScanner.nextInt();
                     }
-                    else if (players.get(playerCounter).getPlayerMoney() < 100){
-                        System.out.println("You cannot afford that, ending turn");
-                    }
-                }
-                else if (choice == 2) {
-                    if (players.get(playerCounter).getPlayerMoney() > 30) {
-                        Store.buyFood(players.get(playerCounter));
-                    }
-                    else if (players.get(playerCounter).getPlayerMoney() < 30){
-                        System.out.println("You cannot afford that, ending turn");
-                    }
-                }
-                else if (choice == 3) {
-                    if (players.get(playerCounter).getAnimalListSize() == 0) {
-                        System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
-                        System.out.println("1. Go to store  2. End turn");
-                        int goToStore = myScanner.nextInt();
-                        if (goToStore == 1) {
+                    if (choice == 1) {
+                        if (players.get(playerCounter).getPlayerMoney() > 100) {
                             Store.buyAnimal(players.get(playerCounter));
+                        } else if (players.get(playerCounter).getPlayerMoney() < 100) {
+                            System.out.println("You cannot afford that, ending turn");
                         }
-                    } else {
-                        players.get(playerCounter).feedAnimal();
-                    }
-
-                } else if (choice == 4) {
-                    if (players.get(playerCounter).getAnimalListSize() < 2) {
-                        if (players.get(playerCounter).getPlayerMoney() > 99) {
-                            System.out.println("You don't have enough animals, do you want to go to the store and buy or end your turn?");
+                    } else if (choice == 2) {
+                        if (players.get(playerCounter).getPlayerMoney() > 30) {
+                            Store.buyFood(players.get(playerCounter));
+                        } else if (players.get(playerCounter).getPlayerMoney() < 30) {
+                            System.out.println("You cannot afford that, ending turn");
+                        }
+                    } else if (choice == 3) {
+                        if (players.get(playerCounter).getAnimalListSize() == 0) {
+                            System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
                             System.out.println("1. Go to store  2. End turn");
                             int goToStore = myScanner.nextInt();
-                            while (goToStore < 1 || goToStore > 2) {
-                                System.out.println("Invalid choice, please enter 1 or 2");
-                                goToStore = myScanner.nextInt();
-                            }
                             if (goToStore == 1) {
                                 Store.buyAnimal(players.get(playerCounter));
                             }
+                        } else {
+                            players.get(playerCounter).feedAnimal();
                         }
-                        else {
-                            System.out.println("You don't have enough animals, nor can afford new ones. Ending turn");
+
+                    } else if (choice == 4) {
+                        if (players.get(playerCounter).getAnimalListSize() < 2) {
+                            if (players.get(playerCounter).getPlayerMoney() > 99) {
+                                System.out.println("You don't have enough animals, do you want to go to the store and buy or end your turn?");
+                                System.out.println("1. Go to store  2. End turn");
+                                int goToStore = myScanner.nextInt();
+                                while (goToStore < 1 || goToStore > 2) {
+                                    System.out.println("Invalid choice, please enter 1 or 2");
+                                    goToStore = myScanner.nextInt();
+                                }
+                                if (goToStore == 1) {
+                                    Store.buyAnimal(players.get(playerCounter));
+                                }
+                            } else {
+                                System.out.println("You don't have enough animals, nor can afford new ones. Ending turn");
+                            }
+                        } else {
+                            System.out.println("Please choose which 2 animals to pair");
+                            players.get(playerCounter).printBreed();
+                            System.out.println("Please pick your first animal");
+                            int animal1 = myScanner.nextInt();
+                            while (animal1 <= 0 || animal1 > players.get(playerCounter).getAnimalListSize()) {
+                                System.out.println("Please enter a valid number.");
+                                animal1 = myScanner.nextInt();
+                            }
+                            System.out.println("Please pick your second animal");
+                            int animal2 = myScanner.nextInt();
+                            while (animal2 <= 0 || animal2 > players.get(playerCounter).getAnimalListSize() || animal2 == animal1) {
+                                System.out.println("Please enter a valid number.");
+                                animal2 = myScanner.nextInt();
+                            }
+                            Animal.pair(players.get(playerCounter), players.get(playerCounter).getAnimalFromList(animal1 - 1), players.get(playerCounter).getAnimalFromList(animal2 - 1));
                         }
+                    } else if (choice == 5) {
+                        Store.sellAnimal(players.get(playerCounter));
                     } else {
-                        System.out.println("Please choose which 2 animals to pair");
-                        players.get(playerCounter).printBreed();
-                        System.out.println("Please pick your first animal");
-                        int animal1 = myScanner.nextInt();
-                        while (animal1 <= 0 || animal1 > players.get(playerCounter).getAnimalListSize()){
-                            System.out.println("Please enter a valid number.");
-                            animal1 = myScanner.nextInt();
-                        }
-                        System.out.println("Please pick your second animal");
-                        int animal2 = myScanner.nextInt();
-                        while (animal2 <= 0 || animal2 > players.get(playerCounter).getAnimalListSize() || animal2 == animal1) {
-                            System.out.println("Please enter a valid number.");
-                            animal2 = myScanner.nextInt();
-                        }
-                        Animal.pair(players.get(playerCounter), players.get(playerCounter).getAnimalFromList(animal1 -1), players.get(playerCounter).getAnimalFromList(animal2 -1));
+                        System.out.println("Invalid choice");
                     }
-                } else if (choice == 5) {
-                    Store.sellAnimal(players.get(playerCounter));
-                } else {
-                    System.out.println("Invalid choice");
                 }
 
                 if (players.get(playerCounter).getPlayerMoney() < 100 && players.get(playerCounter).getAnimalListSize() == 0) {
