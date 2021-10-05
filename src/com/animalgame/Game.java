@@ -81,6 +81,10 @@ public class Game {
                             System.out.println("You don't own any animals, do you want to buy at the store or end your turn?");
                             System.out.println("1. Go to store  2. End turn");
                             int goToStore = myScanner.nextInt();
+                            while (goToStore < 1 || goToStore > 2){
+                                System.out.println("Invalid choice, please enter 1 or 2");
+                                goToStore = myScanner.nextInt();
+                            }
                             if (goToStore == 1) {
                                 Store.buyAnimal(players.get(playerCounter));
                             }
